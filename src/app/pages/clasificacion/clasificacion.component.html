@@ -1,0 +1,317 @@
+
+
+
+<!-- tienda de prodcutos -->
+<div style="margin-top: 100px;"[hidden]="!cuatroFiltros " class="">
+    <div  class="portfolio-area">
+        <div style="background-color:#EEEEEE; padding: 20px" class="container">
+          <h1 style="font-size:40px"><b>{{filtro1 + "/ " + filtro2 + "/ " + filtro3 + "/ " + filtro4}} </b> </h1>
+            <div class="row three-column">
+                <div id="gridWrapper" class="clearfix">
+                    <div *ngFor= "let producto of itemsProductos1 | async " >
+                    <div  *ngIf=" (producto.clasificaciones.clasificacion1 == filtro1 &&
+                     producto.clasificaciones.clasificacion2 == filtro2 && 
+                     producto.clasificaciones.clasificacion3 == filtro3)" class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                        <div class="portfolio-thumb">
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                    <img [src]="producto.imagen1" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                      
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                </div>
+                                <div class="tab_image_text">
+                                  <div class="project_title">
+                                    <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                  </div>
+                                    <div class="project_category">
+                                        <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                        <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                    </div>
+                                </div>
+                            </div>
+  
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+                </div>
+                    
+  
+  
+                </div>
+                <!--/#gridWrapper-->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+  </div>
+
+
+<div style="margin-top: 100px;"[hidden]="!tresFiltros" class="">
+        <div  class="portfolio-area">
+            <div style="background-color:#EEEEEE; padding: 20px" class="container">
+              <h1 style="font-size:40px"><b>{{filtro1 + "/ " + filtro2 + "/ " + filtro3 }} </b> </h1>
+                <div class="row three-column">
+                    <div id="gridWrapper" class="clearfix">
+                        <div *ngFor= "let producto of itemsProductos1 | async " >
+                        <div  *ngIf=" (producto.clasificaciones.clasificacion1 == filtro1 &&
+                         producto.clasificaciones.clasificacion2 == filtro2 && 
+                         producto.clasificaciones.clasificacion3 == filtro3)" class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen1" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+                        
+      
+      
+                    </div>
+                    <!--/#gridWrapper-->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+      </div>
+<!-- tres filtros -->
+      <div style="margin-top: 100px;"[hidden]="!dosFiltros  " class="">
+        <div  class="portfolio-area">
+            <div style="background-color:#EEEEEE; padding: 20px" class="container">
+              <h1 style="font-size:40px"><b>{{filtro1 + "/ " + filtro2 }} </b> </h1>
+                <div class="row three-column">
+                    <div id="gridWrapper" class="clearfix">
+                        <div *ngFor= "let producto of itemsProductos1 | async " >
+                        <div  *ngIf=" (producto.clasificaciones.clasificacion1 == filtro1 &&
+                         producto.clasificaciones.clasificacion2 == filtro2 )" class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen1" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+                        
+      
+      
+                    </div>
+                    <!--/#gridWrapper-->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+      </div>
+
+      <div style="margin-top: 100px;"[hidden]="!unFiltro " class="">
+        <div  class="portfolio-area">
+            <div style="background-color:#EEEEEE; padding: 20px" class="container">
+              <h1 style="font-size:40px"><b>{{filtro1  }} </b> </h1>
+                <div class="row three-column">
+                    <div id="gridWrapper" class="clearfix">
+                        <div *ngFor= "let producto of itemsProductos1 | async " >
+                        <div  *ngIf=" (producto.clasificaciones.clasificacion1 == filtro1 )" class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen1" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+                        
+      
+      
+                    </div>
+                    <!--/#gridWrapper-->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+      </div>
+
+
+      <div style="margin-top: 100px;"[hidden]="!directa " class="">
+        <div  class="portfolio-area">
+            <div style="background-color:#EEEEEE; padding: 20px" class="container">
+              <h1 style="font-size:40px"><b>{{filtro1  }} directa</b> </h1>
+                <div class="row three-column">
+                    <div id="gridWrapper" class="clearfix">
+                        <div *ngFor= "let producto of itemsProductos1 | async " >
+                        <div   class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen1" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+
+                    <div *ngFor= "let producto of itemsProductos2 | async " >
+                        <div  class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen2" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+
+                    <div *ngFor= "let producto of itemsProductos3 | async " >
+                        <div   class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen3" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+
+                    <div *ngFor= "let producto of itemsProductos4 | async " >
+                        <div   class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                            <div class="portfolio-thumb">
+                                <div class="gc_filter_cont_overlay_wrapper">
+                                    <figure>
+                                        <img [src]="producto.imagen1" class="zoom " width="270px" height="318px"  alt="service_img" />
+                                    </figure>
+                                    <div class="gc_filter_cont_overlay">
+                                          
+                                        <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                                    </div>
+                                    <div class="tab_image_text">
+                                      <div class="project_title">
+                                        <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}}</a></h4>
+                                      </div>
+                                        <div class="project_category">
+                                            <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                            <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+                            <!-- /.portfolio-thumb -->
+                        </div>
+                    </div>
+                        
+      
+      
+                    </div>
+                    <!--/#gridWrapper-->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+      </div>
+
+      
+      <div id="page_header6_section">
+      
+      </div>
+      

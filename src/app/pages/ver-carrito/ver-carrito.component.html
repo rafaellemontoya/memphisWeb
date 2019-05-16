@@ -1,0 +1,138 @@
+<div class="page_header">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6">
+              <h1> Carrito de compras  </h1>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+              <div class="sub_title_section">
+                  <ul class="sub_title">
+                      <li> <a routerLink=""> Inicio </a> <i class="fa fa-angle-right" aria-hidden="true"></i> </li>
+                      <li> Ver Carrito  </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="cart_product_wrapper">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="btc_shop_single_prod_right_section shop_product_single_head related_pdt_shop_head">
+                  <h1>Tus productos ( {{carritoService.carrito.length}} )</h1>
+              </div>
+          </div>
+          <div class="shop_cart_page_wrapper">
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                  <div class="table-responsive cart-calculations">
+                      <table class="table">
+
+                          <thead class="cart_table_heading">
+                              <tr>
+                                  <th>item</th>
+
+                                  <th>Producto</th>
+                                  <th>&nbsp;</th>
+                                  <th> Precio</th>
+
+                                  <th>Cantidad</th>
+
+                                  <th>Total precio</th>
+                                  <th>&nbsp;</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let producto of carritoService.carrito ">
+                                  <td>
+                                      {{carritoService.carrito.indexOf(producto)+1}}
+                                  </td>
+                                  <td>
+                                      <div class="table_cart_img">
+                                          <figure>
+                                              <img [src]="producto.imagen1" width="65 px" alt="">
+                                          </figure>
+                                      </div>
+                                      <div class="table_cart_cntnt">
+                                          <h1>{{producto.nombre}} </h1>
+                                          
+                                      </div>
+                                  </td>
+                                  <td></td>
+                                  <td class="cart_page_price">${{producto.precioPublico}} </td>
+                                  <td>
+                                      <input (change)="actualizarUnidades($event, producto)" value="{{producto.unidades}}" type="number">
+                                  </td>
+                                  <td class="cart_page_totl">${{producto.importe}} </td>
+                                  <td>
+                                      <a style="cursor:pointer;" (click)="eliminarProducto(producto)"> <i class="fa fa-trash"></i></a>
+                                  </td>
+                              </tr>
+                           
+                              <tr>
+
+                                  <td> </td>
+                                  <td class="shop_btn_wrapper shop_car_btn_wrapper">
+
+                                      <ul>
+                                          <li><a style="cursor:pointer;" (click)="atras()">Continuar comprando</a>
+                                          </li>
+                                      </ul>
+
+                                  </td>
+                                  <td> </td>
+                                  <td> </td>
+                                  <td></td>
+
+                                  <td class="cart_btn_cntnt"> Sub Total : <span>$ {{getTotal()}} </span> </td>
+                                  <td></td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  
+
+              </div>
+
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+                  <div class="shipping_Wrapper">
+                      
+                      
+                      <div class="estimate_shiping_Wrapper_cntnt estimate_shiping_Wrapper_repsnse">
+
+                          <table class="table">
+                              <tbody>
+                                  <tr>
+                                      <th>Sub Total : </th>
+                                      <td><span class="price">${{getTotal()}}</span></td>
+                                  </tr>
+                                  
+                                  <tr>
+                                      <th> Envío:</th>
+                                      <td><span class="price">-$0.00</span></td>
+                                  </tr>
+                                  <tr>
+                                      <th class="cart_btn_cntnt"> Sub Total :</th>
+                                      <td><span class="cart_btn_cntnt_clr">${{getTotal()}} </span> </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <div class="shop_btn_wrapper shop_btn_wrapper_shipping">
+                              <ul>
+                                  <li><a style="cursor:pointer;" (click)="siguiente()">Pagar</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

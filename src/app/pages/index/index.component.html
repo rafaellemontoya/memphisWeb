@@ -1,0 +1,318 @@
+<div class="slider_main_wrapper">
+	<div class="slider-area">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="carousel-captions caption-1" [ngStyle]="{ 'background-image': 'url(' + banerPrincipal + ')'}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="content">
+                                        <div class="hs_effect_btn">
+                                            <ul>
+                                                <!-- <li data-animation="animated flipInX"><a href="#" class="hs_btn_hover">Read more</a></li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="carousel-captions caption-1" [ngStyle]="{ 'background-image': 'url(' + banerPrincipal2 + ')'}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="content">
+                                        <div class="hs_effect_btn">
+                                            <ul>
+                                            </ul>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="carousel-captions caption-1" [ngStyle]="{ 'background-image': 'url(' + banerPrincipal3 + ')'}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="content">
+                                        <div class="hs_effect_btn">
+                                            <ul>
+                                            </ul>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"><span class="number"></span></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""><span class="number"></span></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" class=""><span class="number"></span></li>
+                </ol>
+                <div class="carousel-nevigation">
+                    <a class="prev" href="#carousel-example-generic" role="button" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+							<span>ANT</span>
+						</a>
+                    <a class="next" href="#carousel-example-generic" role="button" data-slide="next">
+						<span>SIG</span>
+						  <i class="fa fa-angle-right"></i>
+						</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+  <div id="page_header6_section">
+    <!-- section_7 start -->
+    <div class="section_3">
+    <div class="image_background_overlay"></div>
+    <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                      <img [src]="banerIntermedio">
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                      <img [src]="banerIntermedio2">
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                        <img [src]="banerIntermedio3">
+                    </div>
+                    <!--end of /.col-sm-6-->
+
+                </div>
+            <div class="page_header_title">
+            </div>
+
+            <div class="sub_title_section">
+            </div>
+    </div>
+    <!-- section_7 end -->
+  </div>
+  <div class="">
+    <div class="portfolio-area">
+        <div  style="background-color:#EEEEEE; padding: 20px"  class="container">
+            <div  class="row three-column">
+                <div id="gridWrapper" class="clearfix">
+                  <h1 style="font-size:40px"><b>Clasificaciones</b></h1>
+                    <div class="portfolio-wrapper III_column_6_col" data-groups='["all", "business"]'>
+                        <div class="portfolio-thumb">
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                  <img [src]="urlBaner" class="zoom image img-responsive" alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/clasificacion', name,'-1', '','']"><i class="fa fa-search-plus"></i></a></div>
+                                </div>
+                                <div class="tab_image_text">
+                                    <div class="project_category">
+                                      <h3><a [routerLink]="['/clasificacion', name,'-1', '','']">{{name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+
+                    <div class="portfolio-wrapper III_column_6_col" data-groups='["all", "business","family"]'>
+                        <div class="portfolio-thumb">
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                  <img [src]="urlBaner2" class="zoom image img-responsive" alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/clasificacion', name2,'-1', '','']"><i class="fa fa-search-plus"></i></a></div>
+
+                                </div>
+                                <div class="tab_image_text">
+                                  <div class="project_category">
+                                    <h3><a [routerLink]="['/clasificacion', name2,'-1', '','']">{{name2}}</a></h3>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+        <div class="portfolio-wrapper III_column_6_col" data-groups='["all", "business","family"]'>
+                        <div class="portfolio-thumb">
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                  <img [src]="urlBaner3" class="zoom image img-responsive" alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/clasificacion', name3,'-1', '','']"><i class="fa fa-search-plus"></i></a></div>
+
+                                </div>
+                                <div class="tab_image_text">
+                                  <div class="project_category">
+                                    <h3><a [routerLink]="['/clasificacion', name3,'-1', '','']">{{name3}}</a></h3>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+                    <div class="portfolio-wrapper III_column_6_col" data-groups='["all", "social"]'>
+                        <div class="portfolio-thumb">
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                  <img [src]="urlBaner4" class="zoom image img-responsive" alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/clasificacion', name4,'-1', '','']"><i class="fa fa-search-plus"></i></a></div>
+                                </div>
+                                <div class="tab_image_text">
+                                      <div class="project_category">
+                                        <h3><a [routerLink]="['/clasificacion', name4,'-1', '','']">{{name4}}</a></h3>
+                                      </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+
+                    <div class="portfolio-wrapper III_column_6_col" data-groups='["all", "family", "civil"]'>
+                        <div class="portfolio-thumb">
+
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                  <img [src]="urlBaner5" class="zoom image img-responsive" alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/clasificacion', name5,'-1', '','']"><i class="fa fa-search-plus"></i></a></div>
+
+                                </div>
+                                <div class="tab_image_text">
+                                  <div class="project_category">
+                                    <h3><a [routerLink]="['/clasificacion', name5,'-1', '','']">{{name5}}</a></h3>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+
+                    <div class="portfolio-wrapper III_column_6_col" data-groups='["all", "social"]'>
+                        <div class="portfolio-thumb">
+                            <div class="gc_filter_cont_overlay_wrapper">
+                                <figure>
+                                  <img [src]="urlBaner6" class="zoom image img-responsive" alt="service_img" />
+                                </figure>
+                                <div class="gc_filter_cont_overlay">
+                                    <div class="gc_filter_text zoom_popup"><a [routerLink]="['/clasificacion', name6,'-1', '','']"><i class="fa fa-search-plus"></i></a></div>
+                                </div>
+                                <div class="tab_image_text">
+                                  <div class="project_category">
+                                    <h3><a [routerLink]="['/clasificacion', name6,'-1', '','']">{{name6}}</a></h3>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.portfolio-thumb -->
+                    </div>
+
+
+
+
+
+
+                </div>
+                <!--/#gridWrapper-->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+</div>
+<!-- tienda de prodcutos -->
+<div class="">
+  <div  class="portfolio-area">
+      <div style="background-color:#EEEEEE; padding: 20px" class="container">
+        <h1 style="font-size:40px"><b>Productos</b></h1>
+          <div class="row three-column">
+              <div id="gridWrapper" class="clearfix">
+                  <div  *ngFor= "let producto of productos | async" class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                      <div class="portfolio-thumb">
+                          <div class="gc_filter_cont_overlay_wrapper">
+                              <figure>
+                                  <img [src]="producto.imagen1" class="zoom image img-responsive" alt="service_img" />
+                              </figure>
+                              <div class="gc_filter_cont_overlay">
+                                  <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                              </div>
+                              <div class="tab_image_text">
+                                <div class="project_title">
+                                  <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}} </a></h4>
+                                </div>
+                                  <div class="project_category">
+                                      <h4 ><a *ngIf="producto.descuento != 0; else salto" [routerLink]="['/producto', producto.key]">{{producto.descuento}}%</a></h4>
+                                      <ng-template #salto><br></ng-template>
+                                      <h3><a [routerLink]="['/producto', producto.key]"><font color=red>{{producto.precio | currency}}</font></a></h3>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                      <!-- /.portfolio-thumb -->
+                  </div>
+
+
+
+
+
+
+
+              </div>
+              <!--/#gridWrapper-->
+          </div>
+          <!-- /.row -->
+      </div>
+      <!-- /.container -->
+  </div>
+</div>
+<div id="page_header6_section">
+  <!-- section_7 start -->
+  <div class="section_3">
+  <div class="image_background_overlay"></div>
+  <div class="row">
+          <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <img [src]="banerIntermedio">
+          </div>
+          <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+           <img [src]="banerIntermedio2">
+          </div>
+          <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+             <img [src]="banerIntermedio3">
+          </div>
+                  <!--end of /.col-sm-6-->
+
+              </div>
+          <div class="page_header_title">
+          </div>
+
+          <div class="sub_title_section">
+          </div>
+  </div>
+  <!-- section_7 end -->
+</div>

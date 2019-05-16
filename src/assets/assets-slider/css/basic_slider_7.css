@@ -1,0 +1,182 @@
+/*------------------------------------------------------------------
+
+Project:	A Future HTML UI Kit
+Version:	1.0.0
+Author: 	webstrot 
+
+------------------------------------------------------------------
+[Table of contents]
+ 
+1. slider_main_wrapper start
+
+
+*/
+
+
+/*-- slider-area Start --*/
+
+.slider-area{
+	float:left;
+	width:100%;
+	position:relative;
+}
+.slider-area .carousel-inner .item .caption-1 {
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url(../images/basic_slider_7/level1.jpg) 50% 0 repeat-y;
+  position: relative;
+  min-height:850px;
+}
+.slider-area .carousel-inner .item .caption-2 {
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url(../images/basic_slider_7/level2.jpg);
+  position: relative;
+  min-height:850px;
+}
+.slider-area .carousel-inner .item .caption-3 {
+width:100%;
+  height:100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url(../images/basic_slider_7/level3.jpg);
+  position: relative;
+  min-height:850px;
+}
+.slider-area .carousel-inner .item .carousel-captions:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.slider-area .carousel-inner .item .carousel-captions .content {
+  display: block;
+  position: relative;
+  z-index: 999;
+  overflow: hidden;
+  vertical-align: middle;
+  padding-top:250px;
+  padding-bottom:250px;
+}
+.slider-area .carousel-inner .item .carousel-captions .content h2 {
+  color: #fff;
+  font-size: 60px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  margin: 0 0 45px;
+  animation-delay: 1s;
+}
+.slider-area .carousel-inner .item .carousel-captions .content h2 span {
+  color: #cf9c67;
+}
+.slider-area .carousel-inner .item .carousel-captions .content p {
+  font-size: 24px;
+  color: #fff;
+  margin: 0 0 50px;
+  animation-delay: 1.5s;
+}
+.slider-area .carousel-inner .item .carousel-captions .content_tabs{
+	display: block;
+  position: relative;
+  z-index: 999;
+  overflow: hidden;
+  vertical-align: middle;
+  padding-top:140px;
+}
+.slider-area .carousel-inner .carousel-indicators {
+  position: absolute;
+  left: inherit;
+  right: 0;
+  margin: 0;
+  list-style: none;
+  width: 0;
+  z-index: 9;
+  width: auto;
+  top: 40%;
+}
+.slider-area .carousel-inner .carousel-indicators li {
+  text-indent: 0;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  background-color: transparent;
+  display: block;
+  border: none;
+  border-radius: 0;
+  width: 250px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  background: rgba(33, 33, 33, 0.5);
+  padding: 0 30px;
+}
+.slider-area .carousel-inner .carousel-indicators li span.number {
+  display: inline-block;
+  padding-right: 15px;
+}
+.slider-area .carousel-inner .carousel-indicators li span.con {
+  display: inline-block;
+  position: relative;
+  padding-left: 42px;
+}
+.slider-area .carousel-inner .carousel-indicators li span.con:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1px;
+  background: #cf9c67;
+  width: 26px;
+}
+.slider-area .carousel-inner .carousel-indicators li.active {
+  background: rgba(0, 0, 0, 0.5);
+}
+.slider-area .carousel-inner .carousel-indicators li:first-child {
+  margin-top: 0;
+}
+.slider-area .carousel-inner .item .carousel-captions .content .btn1{
+	float:left;
+	width:180px;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+	color:#ffffff;
+	text-align:center;
+	-webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+	background:rgba(255, 255, 255, 0.21);
+	animation-delay: 2s;
+	    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.slider-area .carousel-inner .item .carousel-captions .content .btn1:hover{
+	background:#cf9c67;
+	    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+@media (max-width: 767px){
+	.slider-area .carousel-inner .carousel-indicators li{display: inline-block;}
+	.slider-area .carousel-inner .carousel-indicators{top: initial;}
+}
+
+/* slider_main_wrapper end */

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Memphis </title>
+	<!-- Place favicon.ico in the root directory -->
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/assets-slider/images/favicon.png">
+
+  <!-- font-awesome -->
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/css/fonts.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+  <link rel="stylesheet" href="assets/css/owl.theme.default.css" />
+  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+  <link href="assets/css/jquery-ui.min.css" rel="stylesheet">
+  <!-- Animation Css -->
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <!-- Style CSS -->
+  <link href="assets/css/shop.css" rel="stylesheet">
+  <!-- Common Style CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- Style Css -->
+  <link href="assets/assets-slider/css/basic_slider_6.css" rel="stylesheet">
+  <!-- common Style Css -->
+  <link href="assets/assets-slider/css/dark_header_style.css" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+  <link href="assets/css/portfolio_grid_style_6.css" rel="stylesheet">
+  <link href="assets/css/portfolio_grid_style_5.css" rel="stylesheet">
+
+
+
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- Custom styles for this template -->
+
+    <!-- font-awesome -->
+    <!-- Magnific Popup Css -->
+    <!-- Style Css -->
+      <!-- Common Style CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/assets-banner2/css/page_header.css" rel="stylesheet">
+<!-- Common Style CSS -->
+  <link href="assets/assets-banner2/css/style.css" rel="stylesheet">
+  <link href="assets/css/shop.css" rel="stylesheet">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css"></head>
+<body>
+  <app-root></app-root>
+
+<!-- Bootstrap js -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/megnify.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/jquery.inview.min.js"></script>
+
+
+
+
+<!-- Custom js -->
+<script src="assets/js/shop.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+    function changeQty(increase) {
+        var qty = parseInt($('.select_number').find("input").val());
+        if (!isNaN(qty)) {
+            qty = increase ? qty + 1 : (qty > 1 ? qty - 1 : 1);
+            $('.select_number').find("input").val(qty);
+        } else {
+            $('.select_number').find("input").val(1);
+        }
+    }
+
+    function goToByScroll(id) {
+        $('html,body').animate({
+            scrollTop: $("#" + id).offset().top
+        }, 'slow');
+    }
+
+    //------- Progress Bar ---------//
+
+    $('.progress_section').on('inview', function(event, visible, visiblePartX, visiblePartY) {
+        if (visible) {
+            $.each($('div.progress-bar'), function() {
+                $(this).css('width', $(this).attr('aria-valuenow') + '%');
+            });
+            $(this).off('inview');
+        }
+    });
+</script>
+
+<script type="text/javascript" src="runtime.b57bf819d5bdce77f1c7.js"></script><script type="text/javascript" src="polyfills.fb087d5ed4ca4d598c4b.js"></script><script type="text/javascript" src="main.6d8f19c7f9934ea54f3d.js"></script></body>
+</html>

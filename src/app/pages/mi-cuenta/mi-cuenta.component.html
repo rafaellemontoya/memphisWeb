@@ -1,0 +1,231 @@
+<div class="service_main_wrapper service_single_page">
+    <div class="container">
+        <div class="row">
+            <!-- section_heading start -->
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="text-center">
+                    <div class="section_heading">
+                        <h2> Bienvenido <span>{{cliente.nombre + ' ' +cliente.apellidos}}</span></h2>
+                        <div class="title-bdr dark_title_bdr">
+                            <div class="title-bdr-inside"></div>
+                        </div>
+                        <p>En ésta sección podrás ver todo lo referente a tu información y tus pedidos.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- section_heading end -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="hs_service_main_box_wrapper service_single_page_wrapper  wow  fadeInUp animated" data-wow-duration="1.3s" style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                        <div class="hs_service_icon_main_wrapper service_single_icon_wrapper">
+                            <div class="hs_service_icon_wrapper">
+                                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                                <div class="btc_step_overlay"></div>
+                            </div>
+                        </div>
+                        <div class="hs_service_icon_cont_wrapper service_singl_cntnt">
+                            <h2>Pedidos Activos</h2>
+                            <p>Ve los pedidos que aún no han sido entregados.</p>
+                            <h5><a routerLink="/mis-pedidos"> Ver más <i class="fa fa-long-arrow-right"></i></a></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="hs_service_main_box_wrapper service_single_page_wrapper  wow  fadeInUp animated" data-wow-duration="1.6s" style="visibility: visible; animation-duration: 1.6s; animation-name: fadeInUp;">
+                        <div class="hs_service_icon_main_wrapper service_single_icon_wrapper">
+                            <div class="hs_service_icon_wrapper">
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                                <div class="btc_step_overlay"></div>
+                            </div>
+                        </div>
+                        <div class="hs_service_icon_cont_wrapper service_singl_cntnt">
+                            <h2>Editar información</h2>
+                            <p>Cambia la información de tu cuenta, nombre, dirección, etc.</p>
+                            <h5><a routerLink="/editar-cuenta">Ver más <i class="fa fa-long-arrow-right"></i></a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="hs_service_main_box_wrapper service_single_page_wrapper wow  fadeInUp animated" data-wow-duration="1.9s" style="visibility: visible; animation-duration: 1.9s; animation-name: fadeInUp;">
+                        <div class="hs_service_icon_main_wrapper service_single_icon_wrapper">
+                            <div class="hs_service_icon_wrapper">
+                                <i class="fa fa-glass" aria-hidden="true"></i>
+                                <div class="btc_step_overlay"></div>
+                            </div>
+                        </div>
+                        <div class="hs_service_icon_cont_wrapper service_singl_cntnt">
+                            <h2>Historial de pedidos</h2>
+                            <p>Revisa los pedidos que has realizado anteriormente.</p>
+                            <h5><a routerLink="/historial-pedidos">Ver más <i class="fa fa-long-arrow-right"></i></a></h5>
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+            <!-- /.container -->
+        </div>
+        <!--/.portfolio-area-->
+    </div>
+</div>
+<div class="service_main_wrapper service_single_page">
+    <div class="container">
+        <div class="row">
+            <!-- section_heading start -->
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="text-center">
+                    <div class="section_heading">
+                        <h2> Tu información <span>{{cliente.nombre }}</span></h2>
+                        <div class="title-bdr dark_title_bdr">
+                            <div class="title-bdr-inside"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!--/.portfolio-area-->
+    </div>
+</div>
+
+<div class="">
+    <div class="container">
+
+
+        
+
+        <!--Checkout Details-->
+        <div class="checkout-form">
+
+            <div class="">
+                  
+                <!--Column-->
+               
+                <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                   
+                    <div class="row clearfix">
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Nombre <sup></sup></div>
+                            <input type="text" readonly=true [(ngModel)]="cliente.nombre" name="nombre" #nombre="ngModel" value="" placeholder="">
+                            
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Apellido <sup></sup></div>
+                            <input type="text" readonly=true [(ngModel)]="cliente.apellidos" name="apellidos" #apellidos="ngModel" value="" placeholder="">
+                            
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Empresa (Opcional)</div>
+                            <input type="text" readonly=true [(ngModel)]="cliente.empresa" name="empresa" #empresa="ngModel" value="" placeholder="">
+                            
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Email <sup></sup></div>
+                            <input type="text" readonly=true [(ngModel)]="cliente.email" [email]="true" name="email" #email="ngModel" value="" placeholder="">
+                            <div [hidden]="email.valid || email.pristine " class="alert alert-danger">
+                                Email inválido
+                            </div>
+                            
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Teléfono <sup></sup></div>
+                            <input type="tel" readonly=true [(ngModel)]="cliente.telefono" name="telefono" #telefono="ngModel" value="" placeholder="">
+                            
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Estado <sup>*</sup></div>
+                            <select id="estado" readonly=true [(ngModel)]="cliente.estado" name="estado" #power="ngModel">
+                                <option value='aguascalientes'>aguascalientes</option>
+                                <option value='Baja California'>Baja California</option>
+                                <option value='Baja California Sur'>Baja California Sur</option>
+                                <option value='Campeche'>Campeche</option>
+                                <option value='Chiapas'>Chiapas</option>
+                                <option value='Chihuahua'>Chihuahua</option>
+                                <option value='Ciudad de México'>Ciudad de México</option>
+                                <option value='Coahuila'>Coahuila</option>
+                                <option value='Colima'>Colima</option>
+                                <option value='Durango'>Durango</option>
+                                <option value='Estado de México'>Estado de México</option>
+                                <option value='Guanajuato'>Guanajuato</option>
+                                <option value='Guerrero'>Guerrero</option>
+                                <option value='Hidalgo'>Hidalgo</option>
+                                <option value='Jalisco'>Jalisco</option>
+                                <option value='Michoacán'>Michoacán</option>
+                                <option value='Morelos'>Morelos</option>
+                                <option value='Nayarit'>Nayarit</option>
+                                <option value='Nuevo León'>Nuevo León</option>
+                                <option value='Oaxaca'>Oaxaca</option>
+                                <option value='Puebla'>Puebla</option>
+                                <option value='Querétaro'>Querétaro</option>
+                                <option value='Quintana Roo'>Quintana Roo</option>
+                                <option value='San Luis Potosí'>San Luis Potosí</option>
+                                <option value='Sinaloa'>Sinaloa</option>
+                                <option value='Sonora'>Sonora</option>
+                                <option value='Tabasco'>Tabasco</option>
+                                <option value='Tamaulipas'>Tamaulipas</option>
+                                <option value='Tlaxcala'>Tlaxcala</option>
+                                <option value='Veracruz'>Veracruz</option>
+                                <option value='Yucatán'>Yucatán</option>
+                                <option value='Zacatecas'>Zacatecas</option>
+                            </select>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Dirección <sup>*</sup></div>
+                            <input type="text" readonly=true [(ngModel)]="cliente.calleNum" name="calleNum" #calleNum="ngModel" value="" placeholder="Calle y número exterior">
+                            <div class="field-label">Interior <sup></sup></div>
+                            <input type="text" min="1" readonly=true [(ngModel)]="cliente.numeroInterior" name="numeroInterior" #numeroInterior="ngModel" value="" placeholder="">
+                            <div [hidden]="numeroInterior.valid || numeroInterior.pristine" class="alert alert-danger">
+                                    Numero interior no válido
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Ciudad <sup>*</sup></div>
+                            <input type="text" readonly=true [(ngModel)]="cliente.ciudad" name="ciudad" #ciudad="ngModel" value="" placeholder="Ciudad o municipio">
+                            
+                        </div>
+
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Código postal <sup>*</sup></div>
+                            <input type="number" readonly=true [(ngModel)]="cliente.cp" name="cp" #cp="ngModel" value="" placeholder="">
+                            
+                        </div>
+
+                        
+
+             
+                    </div>
+                </div>
+               
+            
+
+        </div>
+        <!--End Checkout Details-->
+
+     
+        <!--Payment Box-->
+        
+    </div>
+        <!--End Payment Box-->
+        
+    </div>
+
+</div>

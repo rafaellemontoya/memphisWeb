@@ -1,0 +1,188 @@
+<div class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6">
+                <h1> Revisa tu pedido </h1>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+                <div class="sub_title_section">
+                    <ul class="sub_title">
+                        <li> <a href="#"> Home </a> <i class="fa fa-angle-right" aria-hidden="true"></i> </li>
+                        <li> <a routerLink="verCarrito"> Ver carrito </a> <i class="fa fa-angle-right" aria-hidden="true"></i> </li>
+                        <li> Pago </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+          <!-- mensaje agregado -->
+
+          <div  [hidden]="!pedidoFinalizado" class="section1_bottom_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-6">
+                        
+                        <div class="alert success">
+                            <div class="content_img">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="content_text">
+                                <h4>Pedido creado exitosamente!</h4>
+                                <p>Ponte en contacto con un ejecutivo de ventas al <a href="tel: 55182240">(55) 55 18 22 40</a> o al <a href="tel: 5521246136">(55) 21 24 61 36</a></p>
+                                <p>Tu id de Pedido es <b>{{keyPublico}}</b></p>
+                            </div>
+
+
+                        </div>
+                        
+
+                        <div class="row">
+                            
+                            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <button class="section2_btn btn22" routerLink="/mis-pedidos" type="button">Ver mis pedidos</button>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <button class="section2_btn btn33" routerLink="/inicio" type="button">Volver al inicio</button>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+                        
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <!-- fin mensaje agregado -->
+<div  [hidden]="pedidoFinalizado" >
+<div class="features_with_icon">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="main">
+                    <div class="rotate">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="text-center"><a href="#">Información de envío <br>(cambiar)</a></h4>
+                    <p class="text-center">{{cliente.nombre + ' ' + cliente.apellidos}}</p>
+                    <p class="text-center">Calle: {{cliente.calleNum }}</p>
+                    <p class="text-center">Cliudad: {{ cliente.ciudad }}</p>
+                    <p class="text-center">Estado: {{ cliente.estado }}</p>
+                    <p class="text-center">Código Postal: {{cliente.cp}}</p>
+                    <p class="text-center">Teléfono: {{cliente.telefono}}</p>
+                </div>
+            </div>
+            <!-- <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                <div class="main">
+                    <div class="rotate">
+                        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="text-center"><a routerLink="/nuevaTarjeta">Método de pago</a></h4>
+                    <p class="text-center">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                <div class="main responsive-main">
+                    <div class="rotate">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="text-center"><a href="#"> Dirección de facturación</a></h4>
+                    <p class="text-center">Misma de envío.</p>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<div class="checkout-page">
+    <div class="container">
+
+        <!--Order Box-->
+        <div class="order-box">
+            <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+                <h1>Tu compra </h1>
+            </div>
+            <div class="title-box">
+                
+                <div class="col">PRODUCTOS</div>
+                <div class="col">TOTAL</div>
+            </div>
+            <ul>
+                <li *ngFor="let producto of carritoService.carrito" class="clearfix"><strong>{{producto.unidades + ' ' + producto.nombre}}</strong><span>${{producto.importe}}</span></li>
+                <li class="clearfix">Sub Total<span>${{getTotal()}}</span></li>
+                <li class="clearfix">Envío<span class="free">$ 0.00</span></li>
+                <li class="clearfix">TOTAL<span>${{getTotal()}}</span></li>
+            </ul>
+        </div>
+        <!--End Order Box-->
+
+        <!--Payment Box-->
+        <div class="payment-box">
+            
+            <div class="lower-box text-right">
+                <div class="shop_btn_wrapper checkout_btn">
+                    <ul>
+                        <li>
+                                
+                                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                            <button style="width: 200px" (click)="atras()" class="section2_btn btn1" type="button">Cancelar</button>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                            <button style="width: 200px" (click)= "finalizarCompra()" class="section2_btn btn3" type="button">Finalizar compra</button>
+                                        </div>
+                                        
+                                   
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Payment Box-->
+
+    </div>
+
+</div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>
+
+<script type="text/javascript" >
+    Conekta.setPublicKey('key_KJysdbf6PotS2ut2');
+  
+    var conektaSuccessResponseHandler = function(token) {
+      var $form = $("#card-form");
+      //Inserta el token_id en la forma para que se envíe al servidor
+       $form.append($('<input type="hidden" name="conektaTokenId" id="conektaTokenId">').val(token.id));
+      $form.get(0).submit(); //Hace submit
+    };
+    var conektaErrorResponseHandler = function(response) {
+      var $form = $("#card-form");
+      $form.find(".card-errors").text(response.message_to_purchaser);
+      $form.find("button").prop("disabled", false);
+    };
+  
+    //jQuery para que genere el token después de dar click en submit
+    $(function () {
+      $("#card-form").submit(function(event) {
+        var $form = $(this);
+        // Previene hacer submit más de una vez
+        $form.find("button").prop("disabled", true);
+        Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+        return false;
+      });
+    });
+  </script>

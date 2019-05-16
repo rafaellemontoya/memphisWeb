@@ -1,0 +1,138 @@
+<div class="checkout-page">
+  <div class="container">
+
+      <!--Order Box-->
+      <div class="order-box">
+          <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+              <h1>Pedido: {{pedido.keyPublico}} </h1>
+          </div>
+
+
+          <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+            <h2>Información general</h2>
+        </div>
+          <table  class="table  table-striped">
+            <thead  class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>FECHA</th>
+              <th>PAGADO</th>
+              <th>FECHA PAGO </th>
+              <th>FECHA ENVIO </th>
+              <th>FECHA ENTREGA </th>
+              <th>TOTAL</th>
+              <th>ESTADO</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td>{{pedido.keyPublico}} </td>
+              <td>{{pedido.fecha | date}} </td>
+              <td>{{getPagado(pedido.pagado)}} </td>
+              <td>{{pedido.fechaPago | date}}</td>
+              <td>{{pedido.fechaEnvio | date}}</td>
+              <td>{{pedido.fechaEntrega | date}}</td>
+              <td>{{pedido.total}} </td>
+              <td>{{pedido.estado}} </td>
+
+            </tr>
+          </tbody>
+          </table>
+
+           
+          <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+            <h2>Información de envío</h2>
+        </div>
+          <table  class="table  table-striped">
+            <thead  class="thead-dark">
+            <tr>
+              
+              <th>TIPO</th>
+              <th>PAQUETERIA</th>
+              <th> NÚMERO DE GUÍA</th>
+              <th> COSTO</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pedido.envio.tipo}} </td>
+              <td>{{pedido.envio.paqueteria}} </td>
+              <td>{{pedido.envio.numeroGuia}} </td>
+              <td>{{pedido.envio.costo}} </td>
+
+            </tr>
+          </tbody>
+          </table>
+
+
+
+           
+          <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+            <h2>Dirección de envío</h2>
+        </div>
+          <table  class="table  table-striped">
+            <thead  class="thead-dark">
+            <tr>
+              <th>CALLE Y NUMERO</th>
+              <th>INTERIOR</th>
+              <th>CIUDAD</th>
+              <th>ESTADO</th>
+              <th>CP</th>
+              <th>TELEFONO</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pedido.cliente.calleNum}} </td>
+              <td>{{pedido.cliente.numeroInterior}} </td>
+              <td>{{pedido.cliente.ciudad}} </td>
+              <td>{{pedido.cliente.estado}} </td>
+              <td>{{pedido.cliente.cp}} </td>
+              <td>{{pedido.cliente.telefono}} </td>
+
+            </tr>
+          </tbody>
+          </table>
+
+
+          <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+            <h2>Productos</h2>
+        </div>
+          <table  class="table  table-striped">
+            <thead  class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>IMAGEN</th>
+              <th>UNIDADES</th>
+              <th>NOMBRE</th>
+              <th>PRECIO</th>
+              <th>DESCUENTO</th>
+              <th>IMPORTE</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of getProductos(pedido.productos)" >
+              <td>{{producto.key}} </td>
+              <td><img [src]= producto.imagen1 class="img-responsive"> </td>
+              <td>{{producto.unidades}} </td>
+              <td>{{producto.nombre}} </td>
+              <td>{{producto.precio}} </td>
+              <td>{{producto.descuento}} %</td>
+              <td>{{producto.importe}} </td>
+
+            </tr>
+          </tbody>
+          </table>
+          
+      </div>
+      <!--End Order Box-->
+
+
+  </div>
+
+</div>

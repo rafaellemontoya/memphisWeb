@@ -1,0 +1,94 @@
+<div class="footer">
+  <div class="container">
+      <div class="row">
+       
+          <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+              <div class="widget_2">
+                  <h4>Productos destacados</h4>
+                  <ul class="widget2_list">
+                      <li *ngFor="let item of itemsDestacados | async">
+                          <a [routerLink]="['/producto', item.key]"><img [src]="item.imagen1" class="" width=50px alt="widget3_img" /><i class="fa fa-caret-right" aria-hidden="true"></i> {{item.nombre}} </a>
+                      </li>
+                      
+                  </ul>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+              <div class="widget_3">
+                  <h4>Últimas promociones</h4>
+                  <ul class="widget3_images">
+                      <li *ngFor="let item of itemsProductos | async">
+                          <div class="widget3_wrapper">
+                              <div class="widget3_img_wrapper">
+                                  <a [routerLink]="['/producto', item.key]">
+                                  <img [src]="item.imagen1" class="img-responsive" alt="widget3_img" />
+                                </a>
+                                <a [routerLink]="['/producto', item.key]">
+                                  <div class="widget3_img_overlay">
+                                      <div class="widget3_icon">
+                                          <i class="fa fa-search" aria-hidden="true"></i>
+                                      </div>
+                                  </div>
+                                  </a>
+                              </div>
+                          </div>
+                      </li>
+                      
+                    
+                  </ul>
+              </div>
+              <div class="widget3_link">
+                  <!-- <a href="#">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+              <div class="widget_4">
+                  
+                  <div class="widget4_text_wrapper">
+                    <img src="assets/assets-slider/images/logo_light2.png" width="400px" class="img-responsive" alt="footer_logo_img" />
+                      
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+   <!-- copyright_wrapper start -->
+
+   <div class="copyright_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6">
+                <div class="copyright_content">
+                    <p>© Copyright 2018-19 by <a target="_blank" href="https://www.estoy-en-linea.com/"> Estoy-en-linea </a>- all right reserved</p>
+                    
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+                    <div class="copyright_content">
+                    <p> <a routerLink="/aviso-privacidad"> Aviso de privacidad </a></p>
+                    </div>
+                <!-- <div class="copyright_icon_wrapper">
+                    <ul class="copyright_icons">
+                        <li><a href="#"><i class="fa fa-cc"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cc-visa"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cc-stripe"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cc-amex"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cc-discover"></i></a>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- copyright_wrapper end -->

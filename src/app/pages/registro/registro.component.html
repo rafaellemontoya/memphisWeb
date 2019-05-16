@@ -1,0 +1,249 @@
+<div class="checkout-page">
+    <div class="container">
+
+
+        <form (keydown.enter)="$event.preventDefault()" #clienteForm="ngForm">
+
+        <!--Checkout Details-->
+        <div class="checkout-form">
+
+            <div class="row clearfix">
+                    
+          <!-- mensaje agregado -->
+
+          <div  [hidden]="!submitted" class="section1_bottom_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-6">
+                        
+                        <div class="alert success">
+                            <div class="content_img">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="content_text">
+                                <h4>Registro creado exitosamente!</h4>
+                            </div>
+
+
+                        </div>
+                        
+
+                        <div class="row">
+                            
+                            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <button class="section2_btn btn22" (click)="atras()" type="button">Continuar </button>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <button class="section2_btn btn33" routerLink="/inicio" type="button">Volver al inicio</button>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+                        
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <!-- fin mensaje agregado -->
+                <!--Column-->
+                <div [hidden]="submitted">
+                <div class="column col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+                        <h1>Registro de clientes </h1>
+                    </div>
+                    <div class="row clearfix">
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Nombre <sup>*</sup></div>
+                            <input type="text" required [(ngModel)]="cliente.nombre" name="nombre" #nombre="ngModel" value="" placeholder="">
+                            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                                    Se necesita un nombre
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Apellido <sup>*</sup></div>
+                            <input type="text" required [(ngModel)]="cliente.apellidos" name="apellidos" #apellidos="ngModel" value="" placeholder="">
+                            <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger">
+                                    Se necesitan los apellidos
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Empresa (Opcional)</div>
+                            <input type="text" [(ngModel)]="cliente.empresa" name="empresa" #empresa="ngModel" value="" placeholder="">
+                            <div [hidden]="empresa.valid || empresa.pristine" class="alert alert-danger">
+                                    Empresa no válida
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Email <sup>*</sup></div>
+                            <input type="text" required [(ngModel)]="cliente.email" [email]="true" name="email" #email="ngModel" value="" placeholder="">
+                            <div [hidden]="email.valid || email.pristine " class="alert alert-danger">
+                                Email inválido
+                            </div>
+                            <div [hidden]="!errorCoincidenciaCorreo " class="alert alert-danger">
+                                Error! El correo electrónico ya se ha registrado
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Teléfono <sup>*</sup></div>
+                            <input type="tel" required [(ngModel)]="cliente.telefono" name="telefono" #telefono="ngModel" value="" placeholder="">
+                            <div [hidden]="telefono.valid || telefono.pristine" class="alert alert-danger">
+                                    Se necesita un telefono
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Estado <sup>*</sup></div>
+                            <select id="estado" required [(ngModel)]="cliente.estado" name="estado" #power="ngModel">
+                                <option value='aguascalientes'>aguascalientes</option>
+                                <option value='Baja California'>Baja California</option>
+                                <option value='Baja California Sur'>Baja California Sur</option>
+                                <option value='Campeche'>Campeche</option>
+                                <option value='Chiapas'>Chiapas</option>
+                                <option value='Chihuahua'>Chihuahua</option>
+                                <option value='Ciudad de México'>Ciudad de México</option>
+                                <option value='Coahuila'>Coahuila</option>
+                                <option value='Colima'>Colima</option>
+                                <option value='Durango'>Durango</option>
+                                <option value='Estado de México'>Estado de México</option>
+                                <option value='Guanajuato'>Guanajuato</option>
+                                <option value='Guerrero'>Guerrero</option>
+                                <option value='Hidalgo'>Hidalgo</option>
+                                <option value='Jalisco'>Jalisco</option>
+                                <option value='Michoacán'>Michoacán</option>
+                                <option value='Morelos'>Morelos</option>
+                                <option value='Nayarit'>Nayarit</option>
+                                <option value='Nuevo León'>Nuevo León</option>
+                                <option value='Oaxaca'>Oaxaca</option>
+                                <option value='Puebla'>Puebla</option>
+                                <option value='Querétaro'>Querétaro</option>
+                                <option value='Quintana Roo'>Quintana Roo</option>
+                                <option value='San Luis Potosí'>San Luis Potosí</option>
+                                <option value='Sinaloa'>Sinaloa</option>
+                                <option value='Sonora'>Sonora</option>
+                                <option value='Tabasco'>Tabasco</option>
+                                <option value='Tamaulipas'>Tamaulipas</option>
+                                <option value='Tlaxcala'>Tlaxcala</option>
+                                <option value='Veracruz'>Veracruz</option>
+                                <option value='Yucatán'>Yucatán</option>
+                                <option value='Zacatecas'>Zacatecas</option>
+                            </select>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Calle y número exterior <sup>*</sup></div>
+                            <input type="text" required [(ngModel)]="cliente.calleNum" name="calleNum" #calleNum="ngModel" value="" placeholder="Calle y número exterior">
+                            <div [hidden]="calleNum.valid || calleNum.pristine" class="alert alert-danger">
+                                    Se necesita una calle y número exterior
+                            </div>
+                            
+                        </div>
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Número interior <sup></sup></div>
+                            
+                            <input type="text" [(ngModel)]="cliente.numeroInterior" name="numeroInterior" #numeroInterior="ngModel" value="" placeholder="">
+                            <div [hidden]="numeroInterior.valid || numeroInterior.pristine" class="alert alert-danger">
+                                    Numero interior no válido
+                            </div>
+                        </div>
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label">Ciudad <sup>*</sup></div>
+                            <input type="text" required [(ngModel)]="cliente.ciudad" name="ciudad" #ciudad="ngModel" value="" placeholder="Ciudad o municipio">
+                            <div [hidden]="ciudad.valid || ciudad.pristine" class="alert alert-danger">
+                                    Se necesita una ciudad o municipio
+                            </div>
+                        </div>
+
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <div class="field-label">Código postal <sup>*</sup></div>
+                            <input type="number" required [(ngModel)]="cliente.cp" name="cp" #cp="ngModel" value="" placeholder="">
+                            <div [hidden]="cp.valid || cp.pristine" class="alert alert-danger">
+                                    Se necesita el código postal
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                        <!--Form Group-->
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="field-label"><strong>Contraseña <sup>*</sup></strong></div>
+                            <input type="password" (change)="minimoCaracteres($event)" required [(ngModel)]="cliente.password" name="password" #password="ngModel" value="" placeholder="Mínimo 6 caracteres">
+                            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                                    Se necesita una contraseña
+                            </div>
+                            <div [hidden]="!errorNumeroCaracteresPassword" class="alert alert-danger">
+                                    La contraseña debe tener mínimo 6 caracteres
+                            </div>
+                            <input type="password" name="field-name" value="" (change)="repetirPassword($event)" placeholder="Confirmar contraseña">
+                            <div [hidden]="!errorRepetirPassword" class="alert alert-danger">
+                                    Las contraseñas no coinciden
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               
+            </div>
+
+        </div>
+        <!--End Checkout Details-->
+
+     
+        <!--Payment Box-->
+        <div class="payment-box" [hidden]="submitted">
+            <div class="upper-box">
+
+              
+
+            </div>
+            <div class="lower-box text-right">
+                <div class="shop_btn_wrapper checkout_btn">
+                    <ul>
+                        <li>
+                                <div [hidden]="!errorCoincidenciaCorreo " class="alert alert-danger">
+                                        Error! El correo electrónico ya se ha registrado
+                                    </div>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-danger" style="margin-right: 20px;" (click)="atras()">Cancelar</button>
+                            <button type="button" class="btn btn-success" [disabled]="!clienteForm.form.valid"(click)="clienteFB()">Guardar</button>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!--End Payment Box-->
+        </form>
+    </div>
+
+</div>

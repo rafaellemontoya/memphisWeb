@@ -1,0 +1,394 @@
+
+
+
+
+
+	<a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+    <div class="page_header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+                        <div class="sub_title_section">
+                            <ul class="sub_title">
+                                <li> <a routerLink="/inicio"> Inicio </a> <i class="fa fa-angle-right" aria-hidden="true"></i> </li>
+                                <li> {{productoSeleccionado.nombre}} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="product_single_wrapper">
+            <div class="container">
+                <div class="row" style="background-color:#fff">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="sidebar_widget">
+                            <h4>Buscar </h4>
+                            <form class="search_form" role="search">
+                                <div class="form-group">
+                                    <input type="text" (keyup)="search($event)" (keyup.enter)="irABusqueda()" class="form-control" placeholder="Buscar...">
+                                </div>
+                                <button  (click)="irABusqueda()" type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="sidebar_widget">
+                            <h4>Categories</h4>
+                            <div class="accordion_wrapper">
+                                <div class="panel-group" id="accordion_wrapperLeft">
+
+                                    <div class="panel panel-default">
+
+                                        <div class="panel-heading">
+                                            <h2 class="panel-title">
+                                                <a  [routerLink]="['/clasificacion', 'CCTV']">
+    												CCTV
+    											  </a>
+                                            </h2>
+                                        </div>
+                                        <div class="panel-heading">
+                                                <h2 class="panel-title">
+                                                    <a  [routerLink]="['/clasificacion', 'Redes']">
+                                                        Redes
+                                                      </a>
+                                                </h2>
+                                            </div>
+                                            <div class="panel-heading">
+                                                    <h2 class="panel-title">
+                                                        <a  [routerLink]="['/clasificacion', 'Cómputo']">
+                                                            Cómputo
+                                                          </a>
+                                                    </h2>
+                                                </div>
+                                                <div class="panel-heading">
+                                                        <h2 class="panel-title">
+                                                            <a  [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso']">
+                                                                Alarmas y Control de Acceso
+                                                              </a>
+                                                        </h2>
+                                                    </div>
+                                    
+                                    </div>
+                               
+                                    
+                                  
+                                    <!-- /.panel-default -->
+                                </div>
+                                <!--end of /.panel-group-->
+                            </div>
+                            <!--end of accordion_wrapper-->
+                        </div>
+                        <div class="sidebar_widget">
+                            <h4>Ofertas</h4>
+                            <div class="latest_post_wrapper">
+
+                                <div *ngFor="let productoOferta of itemsProductosOfertas | async" class="blog_wrapper2">
+                                    <div class="blog_image">
+                                        <img [src]="productoOferta.imagen1" class="img-responsive" alt="blog_img2">
+                                    </div>
+                                    <div class="blog_text">
+                                        <h5><a [routerLink]="['/producto', productoOferta.key]">{{productoOferta.nombre}} </a></h5>
+                                        <div class="blog_date">De {{productoOferta.precioPublico}} a $ {{getPrecioDescuento(productoOferta.precioPublico, productoOferta.descuentoPromocion)}} </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="sidebar_shop_right">
+                                   
+                                <!-- mensaje agregado -->
+
+                                <div  [hidden]="!productoAgregado" class="section1_bottom_wrapper">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                                    
+                                                    <div class="alert success">
+                                                        <div class="content_img">
+                                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="content_text">
+                                                            <h4>{{productoSeleccionado.nombre}} agregado correctamente</h4>
+                                                            <p>{{productoSeleccionado.unidades + " " + productoSeleccionado.nombre}} se han agregado a carrito.</p>
+                                                        </div>
+
+                                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                                    </div>
+                                                    
+
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                                            
+                                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                                                <button class="section2_btn btn22"(click)="atras()" type="button">Seguir comprando</button>
+
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                                                <button class="section2_btn btn33" routerLink="/verCarrito" type="button">Pagar</button>
+
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+
+
+                                                    
+
+
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- fin mensaje agregado -->
+                            <div [hidden]="productoAgregado">
+                              <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                  <div class="video_img_section_wrapper">
+                                      
+                                      <div class="cc_ps_top_slider_section cc_ps_top_slider_section_2">
+                                            <img class="small img-responsive" [src]="imagenSeleccionada" alt="small_img" />
+                                         
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                    <div class="btc_shop_single_prod_right_section">
+                                        <h1>{{productoSeleccionado.nombre}}</h1>
+                                        <div class="btc_shop_sin_pro_icon_wrapper">
+                                            <h5 style="white-space: pre;">{{productoSeleccionado.descripcion}}</h5>
+                                            <!-- <ul>
+                                                <li><i class="fa fa-long-arrow-right"></i> Proin gravida nibh vel velit auctor aliquet sollicitudin.</li>
+                                                <li><i class="fa fa-long-arrow-right"></i> Lorem quis bibendum auctor, nisi elit ipsum.</li>
+
+                                            </ul> -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div style="background-color:#f2f2f2" class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                    <div class="btc_shop_single_prod_right_section">
+                                        <div class="btc_shop_prod_quanty_bar">
+                                            <div class="row">
+                                              <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 full_width">
+                                                  <div class="cc_ps_quantily_info">
+                                                      <div class="select_number">
+                                                          <button (click)="agregarCantidad()" onclick="changeQty(1); return false;" class="increase"><i class="fa fa-plus"></i>
+                                                          </button>
+                                                          <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control">
+                                                          <button (click)="disminuirCantidad()" onclick="changeQty(0); return false;" class="decrease"><i class="fa fa-minus"></i>
+                                                          </button>
+                                                      </div>
+                                                      <input type="hidden" name="product_id">
+                                                  </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="btc_shop_product_price_wrapper">
+                                            <ul>
+                                                    <li  *ngIf="(productoSeleccionado.descuentoPromocion == undefined)">$ {{(productoSeleccionado.precioPublico)}}.00</li>
+                                                <li  *ngIf="(productoSeleccionado.descuentoPromocion != undefined)">$ {{(productoSeleccionado.precioPublico-(productoSeleccionado.precioPublico*productoSeleccionado.descuentoPromocion)/100)}}.00</li>
+                                                <li *ngIf="(productoSeleccionado.descuentoPromocion != 0 && productoSeleccionado.descuentoPromocion != undefined)"><del>${{productoSeleccionado.precioPublico}}</del></li>
+                                                <li *ngIf="(productoSeleccionado.descuentoPromocion != 0 && productoSeleccionado.descuentoPromocion != undefined)">({{productoSeleccionado.descuentoPromocion}}% OFF)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="cc_ps_cart_btn_wrapper">
+                                            <div class="cc_ps_cart_btn">
+                                                <ul>
+                                                    <li>
+                                                        <a style="cursor:pointer;" (click)="agregarProducto()"> <i class="fa fa-shopping-cart"></i> Agregar<br> a carrito</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CC ps top product Wrapper End -->
+                                <!-- accordion section start -->
+
+
+
+
+
+
+
+                                <!-- <div class="tabTwo ptb-100">
+                                  <div class="container">
+                                      <div class="row">
+                                          <div class="col-md-9" style="margin-top:50px">
+                                              <div role="tabpanel">
+
+                                                  
+                                                  <ul id="tabTwo" class="nav nav-tabs nav-justified">
+                                                      <li class="active">
+                                                          <a href="#contentTwo-1" data-toggle="tab">
+                                                              <i class="fa fa-music"></i>Retina Ready</a>
+                                                      </li>
+                                                      <li>
+                                                          <a href="#contentTwo-2" data-toggle="tab">
+                                                              <i class="fa fa-star"></i>Support</a>
+                                                      </li>
+                                                      <li>
+                                                          <a href="#contentTwo-3" data-toggle="tab">
+                                                              <i class="fa fa-lightbulb-o"></i>Web Design</a>
+                                                      </li>
+                                                  </ul>
+
+                                                  
+                                                  <div class="tab-content">
+                                                      <div class="tab-pane fade in active animated slideInRight" id="contentTwo-1">
+                                                          <img class="pull-left" src="assets/images/tab/tab-thumb-1.jpg" alt="">
+                                                          <p>Ut cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs condmentum leo massa mollis estiegittis miristum nulla sed fringilla Donec vitae orci dignissim, faucibus tellus volutpat, rhoncus leo.</p>
+
+                                                          <p>Mauris in quam tristique, dignissim urna in, molestie felis. Fusce tristique, elit nec vehicula imperdiet, eros est egestas odio, at aliquet elit nulla sed massa. Ut cursus massa at urnaaculis estie.</p>
+                                                      </div>
+                                                      <div class="tab-pane fade animated slideInRight" id="contentTwo-2">
+                                                          <img class="pull-right" src="assets/images/tab/tab-thumb-2.jpg" alt="">
+                                                          <p>Ut cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs condmentum leo massa mollis estiegittis miristum nulla sed fringilla Donec vitae orci dignissim, faucibus tellus volutpat, rhoncus leo.</p>
+
+                                                          <p>Ut cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs condmentum leo massa mollis estiegittis miristum nulla sed fringilla Donec vitae orci dignissim, faucibus tellus volutpat, rhoncus</p>
+
+                                                      </div>
+                                                      <div class="tab-pane fade animated slideInRight" id="contentTwo-3">
+                                                          <img class="pull-left" src="assets/images/tab/tab-thumb-3.jpg" alt="">
+                                                          <p>Ut cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs condmentum leo massa mollis estiegittis miristum nulla sed fringilla Donec vitae orci dignissim, faucibus tellus volutpat, rhoncus leo.</p>
+
+                                                          <p>Mauris in quam tristique, dignissim urna in, molestie felis. Fusce tristique, elit nec vehicula imperdiet, eros est egestas odio, at aliquet elit nulla sed massa. Ut cursus massa at urnaaculis estie.</p>
+                                                      </div>
+                                                      <div class="tab-pane fade animated slideInRight" id="contentTwo-4">
+                                                          <img class="pull-right" src="assets/images/tab/tab-thumb-4.jpg" alt="">
+                                                          <p>Ut cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs condmentum leo massa mollis estiegittis miristum nulla sed fringilla Donec vitae orci dignissim, faucibus tellus volutpat, rhoncus leo.</p>
+
+                                                          <p>Ut cursus massa at urnaaculis estie. Sed aliquamellus vitae ultrs condmentum leo massa mollis estiegittis miristum nulla sed fringilla Donec vitae orci dignissim, faucibus tellus volutpat, rhoncus</p>
+                                                      </div>
+                                                  </div>
+
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+            
+        </div> -->
+
+
+
+        <div class="cc_letest_item_main_wrapper cc_letest_item_main_wrapper_2">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="video_nav_img sp_vedio_nav_img">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cc_ps_tabs">
+                                    <a style="cursor:pointer;" class="" (click)="cambiarImagen(productoSeleccionado.imagen1)"><img [src]="productoSeleccionado.imagen1" class="img-responsive"></a>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cc_ps_tabs">
+                                    <a style="cursor:pointer;" class="" (click)="cambiarImagen(productoSeleccionado.imagen2)"><img [src]="productoSeleccionado.imagen2" class="img-responsive" ></a>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cc_ps_tabs">
+                                    <a style="cursor:pointer;" class="" (click)="cambiarImagen(productoSeleccionado.imagen3)"><img [src]="productoSeleccionado.imagen3" class="img-responsive" ></a>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cc_ps_tabs">
+                                      <a style="cursor:pointer;" class="" (click)="cambiarImagen(productoSeleccionado.imagen4)"><img [src]="productoSeleccionado.imagen4" class="img-responsive" ></a>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cc_ps_tabs">
+                                          <a style="cursor:pointer;" class="" (click)="cambiarImagen(productoSeleccionado.imagen5)"><img [src]="productoSeleccionado.imagen5" class="img-responsive" ></a>
+                                      </div>
+
+                            </div>
+                          
+                        </div>
+                    
+            </div>
+            
+        </div>
+                            </div>
+        <div *ngIf="(productoSeleccionado.fichaTecnica != undefined && productoSeleccionado.fichaTecnica != '-')"class="cc_letest_item_main_wrapper cc_letest_item_main_wrapper_2">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="btc_shop_single_prod_right_section shop_product_single_head related_pdt_shop_head">
+                        <h1>Ficha técnica </h1>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1><a href="{{productoSeleccionado.fichaTecnica}}.pdf" target="_blank" download="poster-congreso" >Descarga aquí </a></h1>
+                </div>
+            </div>
+            <div class="cc_letest_item_main_wrapper cc_letest_item_main_wrapper_2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="btc_shop_single_prod_right_section shop_product_single_head related_pdt_shop_head">
+                            <h1>Productos Relacionados </h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="cc_li_slider_wrapper_2">
+                            <div class="owl-carousel owl-theme">
+                                <div *ngFor="let productoRelacionado of itemsProductosRelacionados | async" class="item">
+        
+                                    <div class="btc_shop_indx_cont_box_wrapper btc_shop_indx_cont_box_wrapper_2">
+                                        <div  class="btc_shop_indx_img_wrapper">
+                                            <ul>
+                                                <!-- <li class="btc_shop_price btc_stock">out of stock</li> -->
+                                            </ul>
+                                            <img [src]="productoRelacionado.imagen1" alt="shop_img" class="img-responsive" />
+                                            <div class="cc_li_img_overlay">
+                                                <div class="cc_li_img_text">
+                                                    <ul>
+                                                        <li><a [routerLink]="['/producto', productoRelacionado.key]"><i class="fa fa-shopping-cart"></i></a></li>
+                              
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="btc_shop_indx_img_cont_wrapper">
+        
+                                            <h1><a [routerLink]="['/producto', productoRelacionado.key]">{{productoRelacionado.nombre}} </a></h1>
+                                            <h5>{{productoRelacionado.precioPublico | currency}} </h5>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+        
+                               
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- accordion section end -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

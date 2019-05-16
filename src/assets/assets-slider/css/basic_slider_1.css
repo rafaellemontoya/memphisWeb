@@ -1,0 +1,306 @@
+/*------------------------------------------------------------------
+
+Project:	A Future HTML UI Kit
+Version:	1.0.0
+Author: 	webstrot 
+
+------------------------------------------------------------------
+[Table of contents]
+ 
+1. section1_menu_wrapper start
+2. section_1 start
+
+*/
+
+
+
+/* section1_menu_wrapper start */
+
+.section1_menu_wrapper{
+  float:left;
+  width: 100%;
+  background:transparent;
+  color: #fff;
+  padding: 30px 0px;
+}
+.menu_fixed{
+	position:fixed;
+	background:#000000;
+	top:0;
+	left: 0;
+    right: 0;
+    z-index: 100;
+}
+.section1_menu_wrapper .navbar-inverse{
+    background-color: transparent;
+	border-color:transparent;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+	background-color:transparent;
+	border-color:rgba(255, 255, 255, 0.20);
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.section1_menu_wrapper .navbar-nav li a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  padding: 2em 1em .5em;
+}
+.navbar{
+	min-height:0;
+	margin-bottom:0;
+}
+.navbar-nav {
+    float: right;
+    margin: 0;
+}
+#section1_Navbar ul li a{
+	font-size:14px;
+	color:#fff;
+	text-transform:uppercase;
+	border:1px solid transparent;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+	padding:10px 15px;
+}
+#section1_Navbar ul li a:hover{
+	border:1px solid rgba(255, 255, 255, 0.20);
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.section1_search_bar{
+    float: right;
+    width: auto;
+    text-align: center;
+    padding: 10px 15px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.section1_search_box{
+    position: absolute;
+	width: 270px;
+    top: 100%;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 0px;
+    -webkit-box-shadow: 0px 2px 7px -3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 2px 7px -3px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0px 2px 7px -3px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0px 2px 7px -3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 8px -5px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    display: none;
+    z-index: 1000;
+	right:0;
+}
+.section1_search_box input{
+    float: left;
+	color:#111111;
+    width: calc(100% - 45px);
+    padding: 0px 10px;
+    height: 45px;
+    border: 1px solid #e1e1e1;
+    border-right: 0px;
+}
+.section1_search_box button{
+    width: 45px;
+    height: 45px;
+    border: 1px solid #e1e1e1;
+    border-left: none;
+    background-color: #999999;
+    text-align: center;
+    padding: 0px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.section1_search_box button:hover{
+	color:#ffffff;
+	background:#4285f4;
+	border-color:#4285f4;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+	padding: 14px 8px 14px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    text-align: left;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#main {
+    transition: margin-left .5s;
+    padding: 0px 10px;
+    color: #fff;
+}
+#main i {
+	font-size: 14px;
+}
+
+/* section1_menu_wrapper end */
+
+/* section_1 start */
+
+.full_width{
+	float:left;
+	width:100%;
+}
+
+.section_1{
+	width:100%;
+	float:left;
+	background-image:url('../images/basic_slider_1/section1_bg.jpg');
+	max-height:950px;
+	background-position:center 0;
+	background-size: cover;
+	position:relative;
+	text-align:center;
+}
+.section1_img_overlay{
+	position:absolute;
+	top:0%;
+	left:0%;
+	right:0%;
+	bottom:0%;
+	background: #4285f4;
+    opacity: 0.9;
+}
+.section1_bottom_wrapper{
+	display:inline-block;
+}
+.section1_bottom_heading{
+	padding-bottom:30px;
+	padding-top:240px;
+}
+.section1_bottom_heading h4{
+	font-size:30px;
+	font-weight:bold;
+	color:#fff;
+}
+.section1_bottom_btn h3 {
+    font-size: 50px;
+    font-weight: bold;
+    border: 5px solid #fff;
+    padding: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.section1_bottom_text{
+	padding-top:30px;
+}
+.section1_bottom_text p{
+	font-size:18px;
+	color:#fff;
+	line-height:28px;
+}
+.section1_bottom_scroll{
+	padding-bottom:200px;
+}
+.section1_bottom_scroll a{
+	color:#fff;
+}
+.section1_bottom_scroll a:hover{
+	color:#fff;
+}
+.section1_bottom_scroll a i{
+	font-size:70px;
+}
+
+/* section_1 end*/
+
+/* media  query css for ipad */
+@media(max-width: 1200px) {
+	
+#section1_Navbar ul li a {
+    padding: 10px 13px;
+}
+
+}
+
+@media(min-width: 767px) and (max-width: 991px) {
+	
+.section1_bottom_heading a{
+	font-size:22px;
+}
+#section1_Navbar ul li a {
+    padding: 10px 6px;
+}
+.logo_wrapper {
+	margin-top: 0px;
+}
+
+}
+
+/* media query css for ipad end */
+
+
+/* media query css for mobile */
+
+@media(max-width: 767px){
+	
+.section1_menu_wrapper {
+	padding: 0;
+}
+.logo_wrapper{
+	margin-top: 30px;
+}	
+.small {
+  padding: 5px 12px;
+  background:#000000;
+}	
+.section1_bottom_btn h3{
+	font-size:40px;
+}	
+#responsive_main i {
+    font-size: 16px;
+}
+.responsive-menu{
+    float: right;
+    position: relative;
+    top: -35px;
+}
+
+}

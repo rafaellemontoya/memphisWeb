@@ -1,0 +1,523 @@
+<div class="header">
+  <div class="top-bar">
+      <div class="container" style="height: 100px;">
+          <div class="row" style="height: 100px;">
+              <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3"style="height: 100px;">
+                  <div class="contact_info_wrapper">
+                    <a class="navbar-brand" [routerLink]="['/inicio']"><img src="assets/assets-slider/images/logo_light.png" width="230px" alt=""></a>
+                  </div>
+
+                  <div class="contact_info_wrapper"style="height: 100px;">
+                      <ul style="height: 100px;">
+                          <li style="height: 100px;"></li>
+                          <li style="height: 100px;"></li>
+
+                          <!-- <li style="height: 50px; line-height: 100px; "><a href="#"><i class="fa fa-envelope"></i> hola@memphis.com</a></li>
+                          <li style="height: 50px; line-height: 100px; " class="contact_number_wrapper hidden-xs"><a href="#"><i class="fa fa-phone"></i> +1 5555555</a></li> -->
+
+                      </ul>
+                  </div>
+                  <div class="contact_info_wrapper">
+                      <ul>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8"style="height: 100px;">
+                  <!-- signin_and_social_icon_wrapper -->
+                  <div class="signin_and_social_icon_wrapper"style="height: 100px;">
+                      <ul style="height: 100px;">
+                          <li class="social_icon_wrapper hidden-xs">
+                              <ul>
+                                  <li style="height: 100px; line-height: 100px; "><a href="https://www.facebook.com/memphis.com.mx" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                  <!-- <li style="height: 100px; line-height: 100px; "><a href="#"><i class="fa fa-instagram"></i></a></li> -->
+                                  <li style="height: 50px; line-height: 100px; "><a href="mailto:ventas@memphis.com.mx"><i class="fa fa-envelope"></i> ventas@memphis.com.mx</a></li>
+                                  <li style="height: 50px; line-height: 100px; " class="contact_number_wrapper hidden-xs"><a href="tel: 55182240"><i class="fa fa-phone"></i> 55 18 22 40 </a></li>
+
+                              </ul>
+                          </li>
+                          <!-- login Option -->
+                          <li  style="height: 100px; line-height: 100px; "class="dropdown signin_wrapper">
+                              <a routerLink="/login" class="dropdown-toggle" data-toggle="dropdown">
+                                  <i class="fa fa-sign-in"></i> {{getNombreCliente()}}
+                              </a>
+                              <div [hidden]="hayUser">
+                              <ul  class="dropdown-menu">
+                                  <li class="signin_dropdown">
+                                      <!-- <a href="#" class="btn btn-primary"> <span>Login with Facebook</span> <i class="fa fa-facebook"></i> </a>
+                                      <a href="#" class="btn btn-primary google-plus"> Login  with Google <i class="fa fa-google-plus"></i> </a> -->
+                                      
+                                      <div class="formsix-pos">
+                                          <div class="form-group i-email">
+                                              <input type="email" [(ngModel)]="email" name="email" #email2="ngModel"class="form-control" required="" id="emailTen" placeholder="Email Address *">
+                                          </div>
+                                      </div>
+                                      <div class="formsix-e">
+                                          <div class="form-group i-password">
+                                              <input type="password" class="form-control" [(ngModel)]="password" name="password" #password2="ngModel" required="" id="namTen-first" placeholder="Password *">
+                                          </div>
+                                      </div>
+                                      <div class="remember_box">
+                                          <label class="control control--checkbox">Remember me
+                    <input type="checkbox">
+                    <span class="control__indicator"></span>
+                  </label>
+                                          <a href="#" class="forget_password">
+                    Olvidé mi contraseña
+                  </a>
+                                      </div>
+                                      <div class="login_wrapper">
+                                          <a   (click)="login()" class="btn btn-primary login_btn"> Accesar </a>
+                                      </div>
+                                      <div class="sign_up_message">
+                                          <p>No tienes cuenta ? <a [routerLink]="['/registro']"> Regístrate </a> </p>
+                                      </div>
+                                  </li>
+
+                              </ul>
+                            </div>
+
+
+                            <div [hidden]="!hayUser">
+                                <ul  class="dropdown-menu">
+                                    <li class="signin_dropdown">
+                                        <!-- <a href="#" class="btn btn-primary"> <span>Login with Facebook</span> <i class="fa fa-facebook"></i> </a>
+                                        <a href="#" class="btn btn-primary google-plus"> Login  with Google <i class="fa fa-google-plus"></i> </a> -->
+                                        
+                                        <div class="form-group ">
+                                                <a routerLink="/mi-cuenta">Mi cuenta</a>
+                                            </div>
+                                            <div class="form-group ">
+                                                    <a routerLink="/mis-pedidos">Pedidos activos</a>
+                                                </div>
+                                            
+                                        <div class="login_wrapper">
+                                            <a (click)="logout()" class="btn btn-primary login_btn"> Cerrar sesión </a>
+                                        </div>
+                                        
+                                    </li>
+  
+                                </ul>
+                              </div>
+
+
+                          </li>
+
+
+
+                          <li  style="height: 100px; line-height: 100px; "class="dropdown signin_wrapper">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span id="cart-badge" class="badge badge-warning">{{carrito.length}}</span><img src="assets/images/carro.png"style="margin-left:20px" width="50px">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="cart-dropdown">
+                                        <ul class="media-list">
+                                            <li class="media" *ngFor="let producto of carrito">
+                                                <div class="media-left media-middle">
+                                                    <img class="media-object" width="80px" [src]="producto.imagen1" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading"> {{producto.nombre}}</h4>
+                                                    <span class="quantity">{{producto.unidades}} </span> <span class="price">${{producto.precioPublico}} </span>
+                                                    <button type="button" (click)="eliminarProducto(producto)"  class="close"><i class="fa fa-close"></i></button>
+                                                </div>
+                                            </li>
+                                            
+                                        </ul>
+        
+                                        <div class="total">
+                                            <h4 class="total_price">${{getTotal()}} </h4>
+                                            <span class="total_item">{{carrito.length}} productos</span>
+                                            <a routerLink="/verCarrito" class="btn btn-primary pull-right">Pagar </a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+
+
+
+                          <!-- /.Cart Option -->
+                      </ul>
+                  </div>
+                  
+                  <!-- /.signin_and_social_icon_wrapper end -->
+              </div>
+              
+          </div>
+      </div>
+      <!-- /.container -->
+  </div>
+  <div class="main_menu_wrapper hidden-xs hidden-sm">
+      <nav class="navbar mega-menu navbar-default">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="container">
+              <div class="navbar-header hidden-xs hidden-sm">
+                  <a class="navbar-brand" [routerLink]="['/inicio']"></a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="active ">
+                          <a routerLink="inicio" class="" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">
+              Inicio
+            </a>
+                      </li>
+                      <li class="dropdown m-menu-fw"><a [routerLink]="['/clasificacion', 'CCTV','', '', '' ]" data-toggle="dropdown" class="dropdown-toggle">CCTV</a>
+                          <ul class="dropdown-menu">
+                              <li>
+                                  <div class="m-menu-content">
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header">Cámaras</li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion',  'CCTV', 'Cámaras','Domo','']"> <b>Domo</b> </a>
+                                              <ul>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Domo','720 px']">720 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Domo','1080 px']">1080 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Domo','4 mpx']">4 mpx</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Domo','4K']">4K</a></li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras','Bullet','']"> <b>Bullet</b> </a>
+                                              <ul>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Bullet','720 px']">720 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Bullet','1080 px']">1080 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Bullet','4 mpx']">4 mpx</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'Bullet','4K']">4K</a></li>
+                                              </ul>
+                                          </li>
+
+                                      </ul>
+
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header">Cámaras</li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'IP', '']"> <b>IP</b> </a>
+                                              <ul>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'IP','720 px']">720 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'IP','1080 px']">1080 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'IP','4 mpx']">4 mpx</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'IP','4K']">4K</a></li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'PTZ', '']"> <b>PTZ</b> </a>
+                                              <ul>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'PTZ','720 px']">720 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'PTZ','1080 px']">1080 px</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'PTZ','4 mpx']">4 mpx</a></li>
+                                                <li><a [routerLink]="['/clasificacion', 'CCTV', 'Cámaras', 'PTZ','4K']">4K</a></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header"><a [routerLink]="['/clasificacion', 'CCTV', 'Videograbadores', '', '']">Videograbadores</a></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion','CCTV', 'Videograbadores', '4 canales', '']"> 4 canales </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Videograbadores', '8 canales', '']">8 canales</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Videograbadores', '16 canales', '']">16 canales </a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Videograbadores', '32 canales', '']">32 canales </a>
+                                          </li>
+                                      </ul>
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header"><a [routerLink]="['/clasificacion', 'CCTV', 'Accesorios', '', '']">Accesorios</a></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Accesorios', 'Fuentes de poder', '']">Fuentes de poder </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion','CCTV', 'Accesorios', 'Cable', '']"> Cable</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Accesorios', 'Gabinetes','']"> Gabinetes </a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'CCTV', 'Accesorios', 'Accesorios de conexión', '']"> Accesorios de conexión </a>
+                                          </li>
+                                      </ul>
+                                      <ul class="col-sm-3">
+                                        <li class="dropdown-header"><a [routerLink]="['/clasificacion', 'CCTV', 'NVR', '', '']">NVR</a></li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'CCTV', 'NVR', '1080 px', '']">1080 px </a>
+
+                                        </li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion','CCTV', 'NVR', '4 mpx', '']"> 4 mpx</a>
+                                        </li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'CCTV', 'NVR', '4K','']"> 4K </a>
+                                        </li>
+                                        
+                                    </ul>
+                                  </div>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="dropdown m-menu-fw"><a [routerLink]="['/clasificacion', 'Redes', '', '', '']" data-toggle="dropdown" class="dropdown-toggle">Redes</a>
+                          <ul class="dropdown-menu">
+                              <li>
+                                  <div class="m-menu-content">
+                                      <ul class="col-sm-4">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Redes','Wi-Fi', '', '']"> Wi-Fi </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Redes','Antenas', '', '']"> Antenas</a>
+                                          </li>
+                                      </ul>
+
+                                      <ul class="col-sm-4">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Redes','Enlaces', '', '']"> Enlaces </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Redes','Cableado', '', '']"> Cableado</a>
+                                          </li>
+                                      </ul>
+                                      <ul class="col-sm-4">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Redes','Redes', '', '']">Redes </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Redes','Bobinas', '', '']"> Bobinas</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="dropdown m-menu-fw"><a [routerLink]="['/clasificacion', 'Cómputo', '', '', '']" data-toggle="dropdown" class="dropdown-toggle">Cómputo</a>
+                          <ul class="dropdown-menu">
+                              <li>
+                                  <div class="m-menu-content">
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo', 'Almacenamiento', '', '']"> Almacenamiento </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Teclados', '', '']"> Teclados</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Mouse', '', '']"> Mouse</a>
+                                          </li>
+                                      </ul>
+
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Bocinas', '', '']"> Bocinas </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Gabinetes', '', '']"> Gabinetes</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Mother Board', '', '']"> Mother Board</a>
+                                          </li>
+                                      </ul>
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Tarjetas de video', '', '']">Tarjetas de video </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Procesadores', '', '']"> Procesadores</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Discipadores', '', '']"> Discipadores</a>
+                                          </li>
+                                      </ul>
+                                      <ul class="col-sm-3">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Memoria RAM', '', '']">Memoria RAM </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','Laptop', '', '']"> Laptop</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Cómputo','PC', '', '']"> PC</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="dropdown m-menu-fw"><a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', '', '', '']" data-toggle="dropdown" class="dropdown-toggle">Alarmas y control de acceso</a>
+                          <ul class="dropdown-menu">
+                              <li>
+                                  <div class="m-menu-content">
+                                      <ul class="col-sm-6">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Biométricos', '', '']"> Biométricos </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Videoporteros', '', '']"> Videoporteros</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Alarmas', '', '']"> Alarmas</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Relojes checadores', '', '']"> Relojes checadores</a>
+                                          </li>
+                                      </ul>
+
+                                      <ul class="col-sm-6">
+                                          <li class="dropdown-header"></li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Sensores', '', '']"> Sensores </a>
+
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Sirenas', '', '']"> Sirenas</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Fuentes', '', '']"> Fuentes</a>
+                                          </li>
+                                          <li>
+                                              <a [routerLink]="['/clasificacion', 'Alarmas y Control de Acceso', 'Gabinetes', '', '']"> Gabinetes</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="dropdown m-menu-fw"><a [routerLink]="['/clasificacion', 'Radiocomunicaciones', '', '', '']" data-toggle="dropdown" class="dropdown-toggle">Radiocomunicaciones</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="m-menu-content">
+                                    <ul class="col-sm-6">
+                                        <li class="dropdown-header"></li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'Radiocomunicaciones', 'Biométricos', '', '']"> Antenas </a>
+
+                                        </li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'Radiocomunicaciones', 'Radios', '', '']"> Radios</a>
+                                        </li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'Radiocomunicaciones', 'Radios móviles', '', '']"> Radios móviles</a>
+                                        </li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'Radiocomunicaciones', 'Accesorios', '', '']"> Accesorios</a>
+                                        </li>
+                                    </ul>
+
+                                     <ul class="col-sm-6">
+                                        <li class="dropdown-header"></li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'Radiocomunicaciones', 'Radios móviles', '', '']"> Radios móviles</a>
+                                        </li>
+                                        <li>
+                                            <a [routerLink]="['/clasificacion', 'Radiocomunicaciones', 'Accesorios', '', '']"> Accesorios</a>
+                                        </li>
+                                    </ul> 
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                      <!-- <li class="">
+                          <a [routerLink]="['/promocion', '']" class=""  role="button" aria-haspopup="true" aria-expanded="false">
+                      Promociones
+                  </a>
+                      </li> -->
+                      <li class="">
+                          <a [routerLink]="['/contacto']" class=""  role="button" aria-haspopup="true" aria-expanded="false">
+                    Contacto
+                  </a>
+                      </li>
+                      <li>
+                          <div class="search_bar hidden-xs">
+                              <div class="lv_search_bar" id="search_button">
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                              </div>
+                              <div id="search_open" class="lv_search_box">
+                                  <input type="text" (keyup)="search($event)" (keyup.enter)="irABusqueda()" placeholder="Buscar...">
+                                  <button (click)="irABusqueda()"><i  class="fa fa-search" aria-hidden="true"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </li>
+                      
+                  </ul>
+
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+      </nav>
+  </div>
+  <!-- .site-nav -->
+  <div class="mobail_menu_main visible-xs visible-sm">
+      <div class="navbar-header">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+                      <a class="navbar-brand" href="../index.html"><img src="assets/assets-slider/images/logo_light.png" alt=""></a>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+                      <button type="button" class="navbar-toggle collapsed" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="sidebar">
+          <a class="sidebar_logo" href="../index.html"><img src="assets/assets-slider/images/logo-movil.png" alt=""></a>
+          <div id="toggle_close">&times;</div>
+          <div id='cssmenu'>
+              <ul>
+                  <li>
+                      <form class="sidebar_search">
+                          <input type="search" (keyup)="search($event)" (keyup.enter)="irABusqueda()" placeholder="Search...">
+                          <button (click)="irABusqueda()">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </li>
+                  <li class='index.html'><a routerLink="/inicio">Inicio</a>
+
+                  </li>
+                  <li class='productos.html'><a routerLink="/productos">Productos</a>
+                  </li>
+                  <!-- <li class='promociones.html'><a href='promociones'>Promociones</a>
+                  </li> -->
+                  <li class='contacto.html'><a routerLink="/contacto">Contacto</a>
+                  </li>
+                  <li class="sidebar_login">
+                      <a routerLink="/login" class="btn btn-primary">Login/Registro</a>
+                  </li>
+
+
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>

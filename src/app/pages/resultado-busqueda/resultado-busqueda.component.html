@@ -1,0 +1,69 @@
+
+<!-- tienda de prodcutos -->
+<div style="margin-top: 100px;" class="">
+  <div  class="portfolio-area">
+      <div style="background-color:#EEEEEE; padding: 20px" class="container">
+        <h1 style="font-size:40px"><b>Resultado de búsqueda: "{{criterioBusqueda}}"</b></h1>
+          <div class="row three-column">
+              <div id="gridWrapper" class="clearfix">
+
+                <div [hidden]="!cargando " style="text-align: center" >
+                    
+                        
+                            
+                            
+                  <img class="image-center" src='assets/images/loading_2.gif'/>
+
+              
+
+          
+
+      </div>
+                <div [hidden]="!resultadosVacio "class="portfolio-wrapper " >
+                    
+                        
+                            
+                            
+                            <h4 class="text-center" style="padding: 100px;">No se encontraron resultados</h4>
+                        
+
+                    
+
+                </div>
+                
+                  <div  *ngFor= "let producto of itemsProductos | async" class="portfolio-wrapper III_column" data-groups='["all", "business"]'>
+                      <div class="portfolio-thumb">
+                          <div class="gc_filter_cont_overlay_wrapper">
+                              <figure>
+                                  <img [src]="producto.imagen1" width="270px" height="318px"  class="zoom image img-responsive" alt="service_img" />
+                              </figure>
+                              <div class="gc_filter_cont_overlay">
+                                  <div class="gc_filter_text zoom_popup"><a [routerLink]="['/producto', producto.key]"><i class="fa fa-search-plus"></i></a></div>
+                              </div>
+                              <div class="tab_image_text">
+                                <div class="project_title">
+                                  <h4><a [routerLink]="['/producto', producto.key]">{{producto.nombre}} </a></h4>
+                                </div>
+                                  <div class="project_category">
+                                    <h4 *ngIf="(producto.descuentoPromocion != undefined && producto.descuentoPromocion != 0)"><a [routerLink]="['/producto', producto.key]">{{producto.descuentoPromocion + "%"}}</a></h4>
+                                      <ng-template #salto><br></ng-template>
+                                      <h3><a [routerLink]="['/producto', producto.key]"><font color=red>${{producto.precioPublico}}</font></a></h3>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                      <!-- /.portfolio-thumb -->
+                  </div>
+
+
+
+              </div>
+              <!--/#gridWrapper-->
+          </div>
+          <!-- /.row -->
+      </div>
+      <!-- /.container -->
+  </div>
+</div>
+

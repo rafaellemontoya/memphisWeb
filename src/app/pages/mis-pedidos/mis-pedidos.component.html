@@ -1,0 +1,46 @@
+<div class="checkout-page">
+    <div class="container">
+
+        <!--Order Box-->
+        <div class="order-box">
+            <div class="btc_shop_single_prod_right_section related_pdt_shop_head checkout_heading">
+                <h1>Mis pedidos activos </h1>
+            </div>
+            <table  class="table  table-striped">
+              <thead  class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>FECHA</th>
+                <th>PRODUCTOS</th>
+                <th>TOTAL</th>
+                <th>ESTADO</th>
+                <th></th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of itemsPedidos | async" >
+                <td>{{pedido.keyPublico}} </td>
+                <td>{{pedido.fecha | date}} </td>
+                <td>
+                  <div *ngFor="let producto of getProductos(pedido.productos)">
+                  {{producto.unidades}} {{producto.nombre}} {{producto.importe | currency}}
+                </div>  
+              </td>
+                <td>{{pedido.total}} </td>
+                <td>{{pedido.estado}} </td>
+                <td><div class="col-lg-8 col-md-8 col-xs-12 col-sm-6">
+                  <button class="section2_btn btn22" [routerLink]="['/ver-pedido', pedido.key]"type="button">Más info</button>
+                </div></td>
+
+              </tr>
+            </tbody>
+            </table>
+            
+        </div>
+        <!--End Order Box-->
+
+
+    </div>
+
+</div>
