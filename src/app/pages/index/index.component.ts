@@ -3,6 +3,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularFireObject, AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable, Subscription } from 'rxjs';
 import { SessionService } from '../../services/session.service';
+import { PagoOxxoService } from '../../services/pago-oxxo.service';
+import { HttpClient } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
+interface myData {
+  message: string;
+  success: boolean;
+}
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -33,7 +40,7 @@ export class IndexComponent implements OnInit {
   banerIntermedio3: string;
   productos: Observable<any[]>;
   items: Subscription;
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase, private http: HttpClient) {
     this.itemsRef = db.list('paginas/inicio');
     this.items = this.itemsRef.valueChanges().subscribe(items => {
 
@@ -66,6 +73,26 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData(){
+    const dataCargo: CargoOxxo = {
+      monto: 100,
+      concepto: 'cargoPrueba',
+      unidades:20,
+      nombreCliente: 'Cliente prueba',
+      email: 'prueba@prueba.com',
+      telefono: '5514900318',
+      keyVenta: 'keyVenta'
+    };
+    
+    
+      this.http.post('assets/background/cargoOxxo.php', dataCargo ).subscribe( (data) => {
+        console.log(data);
+      }, (error)=>{
+        console.log(error);
+      });
   }
   getUser() {
 

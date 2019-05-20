@@ -30,6 +30,9 @@ import { VerPedidoComponent } from './pages/ver-pedido/ver-pedido.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { AvisoPrivacidadComponent } from './pages/aviso-privacidad/aviso-privacidad.component';
+import { PagoOxxoService } from './services/pago-oxxo.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const routes: Routes = [
 
@@ -62,6 +65,7 @@ const routes: Routes = [
     BrowserModule,
     // Rafa
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
     // Fin Rafa
@@ -70,7 +74,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
-  providers: [AngularFireDatabase, ],
+  providers: [AngularFireDatabase, PagoOxxoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

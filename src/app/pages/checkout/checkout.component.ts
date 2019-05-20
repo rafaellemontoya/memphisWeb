@@ -6,6 +6,7 @@ import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { Pedido } from 'src/app/interfaces/pedido.interface';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { element } from 'protractor';
+import { PagoOxxoService } from '../../services/pago-oxxo.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,7 +21,7 @@ export class CheckoutComponent implements OnInit {
   keyPublico = '';
 
   // tslint:disable-next-line:max-line-length
-  constructor(public carritoService: CarritoService, private location: Location, public sesionService: SessionService, db: AngularFireDatabase) {
+  constructor(public carritoService: CarritoService, private location: Location, public sesionService: SessionService, db: AngularFireDatabase, private pago: PagoOxxoService) {
     console.log(this.sesionService.cliente);
     this.cliente = this.sesionService.cliente;
     this.itemsRef = db.list('ventas');
@@ -28,6 +29,13 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.sesionService.getCurrentKey());
+    
+  }
+
+  getData(){
+    this.pago.getSomeData().subscribe(data => {
+      console.log(data);
+    });
   }
   getTotal(): number {
     return this.carritoService.getTotal();

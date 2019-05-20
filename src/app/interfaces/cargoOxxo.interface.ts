@@ -1,0 +1,9 @@
+interface CargoOxxo {
+    monto: number;
+    concepto: string;
+    unidades: number;
+    nombreCliente: string;
+    email: string;
+    telefono: string;
+    keyVenta: string;
+  }
