@@ -3,9 +3,11 @@ import { HttpClient } from '@angular/common/http';
 
 
 
-interface myData {
-  message: string;
-  success: boolean;
+interface DatosMailing {
+  nombreCliente: string;
+  email: string;
+  referencia: string;
+  monto: number;
 }
 @Injectable({
   providedIn: 'root'
@@ -14,13 +16,34 @@ export class PagoOxxoService {
 
   constructor(private http: HttpClient) { }
 
-  getSomeData() {
-    return this.http.get<myData>('assets/background/prueba.php');
+
+
+  generatePagoOxxo(monto: number, concepto: string, unidades: number, nombreCliente: string, email: string,
+    telefono: string, keyVenta: string, precioEnvio: number, paqueteria: string, calleEnvio: string, cp: string) {
+    const dataCargo: CargoOxxo = {
+      monto: monto * 100,
+      concepto: concepto,
+      unidades: unidades,
+      nombreCliente: nombreCliente,
+      email: email,
+      telefono: telefono,
+      keyVenta: keyVenta,
+      precioEnvio: precioEnvio * 100,
+      paqueteria: paqueteria,
+      calleEnvio: calleEnvio,
+      cp: cp
+    };
+    return this.http.post('sistema/assets/background/cargoOxxo.php', dataCargo);
   }
 
-  pushData(){
-    this.http.post('http://localhost/script.php', 'hola desde angular').subscribe( (data) => {
-      console.log(data);
-    });
+  fichaOxxoCreada(nombreCliente: string, email: string, referencia: string, monto: number) {
+    const datos: DatosMailing = {
+      nombreCliente: nombreCliente,
+      email: email,
+      referencia: referencia,
+      monto: monto
+    };
+    console.log(datos);
+    return this.http.post('sistema/assets/background/enviarFichaOxxo.php', datos);
   }
 }

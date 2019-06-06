@@ -75,11 +75,19 @@ export class ProductoComponent implements OnInit {
     this.productoSeleccionado.imagen4 = elements[0].imagen4;
     this.productoSeleccionado.imagen5 = elements[0].imagen5;
     this.imagenSeleccionada = elements[0].imagen1;
+      this.productoSeleccionado.peso = this.revisarUndefined(elements[0].peso);
       // this.getProductosRelacionados();
 
     });
 
 
+  }
+  revisarUndefined(elemento: any) {
+    if (elemento !== undefined) {
+      return elemento;
+    } else {
+      return 0;
+    }
   }
   agregarProducto() {
     console.log(this.cantidad);

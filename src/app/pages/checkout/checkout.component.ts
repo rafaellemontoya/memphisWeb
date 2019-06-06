@@ -7,6 +7,7 @@ import { Pedido } from 'src/app/interfaces/pedido.interface';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { element } from 'protractor';
 import { PagoOxxoService } from '../../services/pago-oxxo.service';
+import { CostoEnvioService } from 'src/app/services/costo-envio.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,32 +15,27 @@ import { PagoOxxoService } from '../../services/pago-oxxo.service';
   styleUrls: ['../../../assets/css/portfolio_grid_style_3.css']
 })
 export class CheckoutComponent implements OnInit {
-
+  totalCostoEnvio = 0.0;
   cliente: Cliente;
   itemsRef: any;
   pedidoFinalizado = false;
   keyPublico = '';
 
   // tslint:disable-next-line:max-line-length
-  constructor(public carritoService: CarritoService, private location: Location, public sesionService: SessionService, db: AngularFireDatabase, private pago: PagoOxxoService) {
-    console.log(this.sesionService.cliente);
+  constructor(public carritoService: CarritoService, private location: Location, public sesionService: SessionService, db: AngularFireDatabase, private pago: PagoOxxoService,
+    private costoEnvio: CostoEnvioService, private pagoOxxoService: PagoOxxoService) {
+    
     this.cliente = this.sesionService.cliente;
     this.itemsRef = db.list('ventas');
+    this.totalCostoEnvio = this.costoEnvio.costoEnvio;
    }
 
   ngOnInit() {
-    console.log(this.sesionService.getCurrentKey());
+    
     
   }
 
-  getData(){
-    this.pago.getSomeData().subscribe(data => {
-      console.log(data);
-    });
-  }
-  getTotal(): number {
-    return this.carritoService.getTotal();
-  }
+
 
 
   atras() {
@@ -58,18 +54,33 @@ export class CheckoutComponent implements OnInit {
     pedido.fechaEntrega = 0;
     pedido.fechaEnvio = 0;
     pedido.fechaPago = 0;
+    
 
 
     this.generarVenta(pedido);
   }
     generarVenta(pedido) {
-
-      const respuesta = this.itemsRef.push(pedido);
-
-      this.updateKeyPublico(respuesta['key']);
-      this.updateProductos(respuesta['key']);
-      this.updateCliente(respuesta['key']);
-      this.updateEnvio(respuesta['key']);
+      //generar pago oxxo
+      this.pagoOxxoService.generatePagoOxxo(this.carritoService.getTotal(),
+      'Compra en memphis.com', 1, this.cliente.nombre + ' ' + this.cliente.apellidos,
+      this.cliente.email,this.cliente.telefono,'NULL',this.costoEnvio.costoEnvio,this.costoEnvio.envio.nombre,
+      this.cliente.calleNum, this.cliente.cp).subscribe((respuestaConekta)=>{
+        if (respuestaConekta['status'] === 1) {
+          pedido.idOrdenConekta = respuestaConekta['idOrden'];
+          pedido.referenciaOxxo = respuestaConekta['referencia'];
+          pedido.formaPago = 'OxxoPay';
+          const respuesta = this.itemsRef.push(pedido);
+    
+          this.updateKeyPublico(respuesta['key']);
+          this.updateProductos(respuesta['key']);
+          this.updateCliente(respuesta['key']);
+          this.updateEnvio(respuesta['key']);
+          this.pagoOxxoService.fichaOxxoCreada(this.cliente.nombre + ' ' + this.cliente.apellidos, this.cliente.email,
+           respuestaConekta['referencia'], respuestaConekta['monto']).subscribe((respuestaMail)=>{
+             console.log(respuestaMail);
+           });
+        }
+      });
       this.pedidoFinalizado = true;
       window.scroll(0, 0);
   }
@@ -140,5 +151,14 @@ export class CheckoutComponent implements OnInit {
     } else {
       return '';
     }
+  }
+  getSubTotal(): number {
+    return this.carritoService.getTotal();
+  }
+  getTotal(): number {
+    const envio = this.totalCostoEnvio;
+    const subtotal = this.getSubTotal();
+    const total = (+envio) + (+subtotal);
+    return total;
   }
 }

@@ -23,6 +23,7 @@ export class Producto {
     fechaAlta: number;
     empleadoAlta: string;
     importe: number;
+    peso: number;
 
 
 

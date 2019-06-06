@@ -31,7 +31,8 @@
                             </div>
                             <div class="content_text">
                                 <h4>Pedido creado exitosamente!</h4>
-                                <p>Ponte en contacto con un ejecutivo de ventas al <a href="tel: 55182240">(55) 55 18 22 40</a> o al <a href="tel: 5521246136">(55) 21 24 61 36</a></p>
+                                <p>Recibirás un correo con las instrucciones de pago</p>
+                                <p>¿Tienes dudas? Llámanos al <a href="tel: 55182240">(55) 55 18 22 40</a> o al <a href="tel: 5521246136">(55) 21 24 61 36</a></p>
                                 <p>Tu id de Pedido es <b>{{keyPublico}}</b></p>
                             </div>
 
@@ -121,15 +122,14 @@
                 <div class="col">TOTAL</div>
             </div>
             <ul>
-                <li *ngFor="let producto of carritoService.carrito" class="clearfix"><strong>{{producto.unidades + ' ' + producto.nombre}}</strong><span>${{producto.importe}}</span></li>
-                <li class="clearfix">Sub Total<span>${{getTotal()}}</span></li>
-                <li class="clearfix">Envío<span class="free">$ 0.00</span></li>
-                <li class="clearfix">TOTAL<span>${{getTotal()}}</span></li>
+                <li *ngFor="let producto of carritoService.carrito" class="clearfix"><strong>{{producto.unidades + ' ' + producto.nombre}}</strong><span>{{producto.importe| currency}}</span></li>
+                <li class="clearfix">Sub Total<span>{{getTotal() | currency}}</span></li>
+                <li class="clearfix">Envío<span class="free"> {{totalCostoEnvio | currency}} </span></li>
+                <li class="clearfix">TOTAL<span>{{getTotal() | currency}}</span></li>
             </ul>
         </div>
         <!--End Order Box-->
-
-        <!--Payment Box-->
+ 
         <div class="payment-box">
             
             <div class="lower-box text-right">
@@ -160,29 +160,3 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>
 
-<script type="text/javascript" >
-    Conekta.setPublicKey('key_KJysdbf6PotS2ut2');
-  
-    var conektaSuccessResponseHandler = function(token) {
-      var $form = $("#card-form");
-      //Inserta el token_id en la forma para que se envíe al servidor
-       $form.append($('<input type="hidden" name="conektaTokenId" id="conektaTokenId">').val(token.id));
-      $form.get(0).submit(); //Hace submit
-    };
-    var conektaErrorResponseHandler = function(response) {
-      var $form = $("#card-form");
-      $form.find(".card-errors").text(response.message_to_purchaser);
-      $form.find("button").prop("disabled", false);
-    };
-  
-    //jQuery para que genere el token después de dar click en submit
-    $(function () {
-      $("#card-form").submit(function(event) {
-        var $form = $(this);
-        // Previene hacer submit más de una vez
-        $form.find("button").prop("disabled", true);
-        Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
-        return false;
-      });
-    });
-  </script>

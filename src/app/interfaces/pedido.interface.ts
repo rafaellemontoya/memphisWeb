@@ -33,6 +33,9 @@ export class Pedido {
         telefono: ''
     };
     productos: Producto[];
+    formaPago: string;
+    referenciaOxxo: string;
+    idOrdenConekta: string;
 
 
 

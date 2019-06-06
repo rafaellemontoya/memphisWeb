@@ -36,4 +36,12 @@ export class CarritoService {
     productoSeleccionado[0].importe = (unidades * producto.precioPublico);
 
   }
+
+  getPesoTotal(): number{
+    let peso = 0.0;
+    this.carrito.forEach(element => {
+      peso += element.peso * element.unidades;
+    });
+    return peso;
+  }
 }

@@ -73,27 +73,10 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getData();
+    
   }
 
-  getData(){
-    const dataCargo: CargoOxxo = {
-      monto: 100,
-      concepto: 'cargoPrueba',
-      unidades:20,
-      nombreCliente: 'Cliente prueba',
-      email: 'prueba@prueba.com',
-      telefono: '5514900318',
-      keyVenta: 'keyVenta'
-    };
-    
-    
-      this.http.post('assets/background/cargoOxxo.php', dataCargo ).subscribe( (data) => {
-        console.log(data);
-      }, (error)=>{
-        console.log(error);
-      });
-  }
+  
   getUser() {
 
   }

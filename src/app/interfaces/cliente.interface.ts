@@ -10,7 +10,7 @@ export class Cliente {
     calleNum: string;
     numeroInterior?: string;
     ciudad: number;
-    cp: number;
+    cp: string;
 
 
 

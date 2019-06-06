@@ -181,7 +181,7 @@
                         <!--Form Group-->
                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                             <div class="field-label">Código postal <sup>*</sup></div>
-                            <input type="number" required [(ngModel)]="cliente.cp" name="cp" #cp="ngModel" value="" placeholder="">
+                            <input type="text" minlength="5" maxlength="5" required [(ngModel)]="cliente.cp" name="cp" #cp="ngModel" value="" placeholder="">
                             <div [hidden]="cp.valid || cp.pristine" class="alert alert-danger">
                                     Se necesita el código postal
                             </div>
