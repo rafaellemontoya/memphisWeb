@@ -23,7 +23,7 @@
     "@angular/router": "~7.2.15",
     "core-js": "^2.5.4",
     "firebase": "^5.7.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jshint": "^2.10.2",
     "rxjs": "~6.5.2",
     "save": "^2.3.3",
